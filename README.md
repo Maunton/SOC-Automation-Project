@@ -60,7 +60,7 @@ This flowchart shows how security events are managed within an organization, cov
 <img src="https://imgur.com/ClWhmJW.png" height="80%" width="80%" alt="Project walk-through"/>
 <br />
 <br />
-<h2>$${\color{blue}Setting \space up \space Windows \space 10 \space ISO \space on \space a \space virtual \space machine \space and \space installing \space Sysmon \space in \space the \space Windows \space VM:}$$</h2>
+<h3>$${\color{blue}Setting \space up \space Windows \space 10 \space ISO \space on \space a \space virtual \space machine \space and \space installing \space Sysmon \space in \space the \space Windows \space VM:}$$</h3>
 In your browser, go to the download for Windows 10 and click the 'Download Now' for Create Windows installation media.
 <br />
 <br /> 
