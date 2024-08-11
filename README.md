@@ -150,7 +150,7 @@ Run the command to install Sysmon64.
 <img src="https://imgur.com/MTBXSDa.png" height="80%" width="80%" alt="Project walk-through"/>
 <br />
 <br />
-<h2>$${\color{blue}Setting \space up \space an \space instance(Droplet) \space in \space the \space cloud \space for \space Wazuh:}$$</h2>
+<h3>$${\color{blue}Setting \space up \space an \space instance(Droplet) \space in \space the \space cloud \space for \space Wazuh:}$$</h3>
 <br />
 <p align="left">
 Create an Ubuntu machine on the cloud for the Wazuh instance. I chose Digital Ocean where each intance is called a 'Droplet'.
@@ -227,7 +227,7 @@ In the console, run the commands to update and upgrade Ubuntu.
 <img src="https://imgur.com/Yivu48w.png" height="80%" width="80%" alt="Project walk-through"/>
 <br />
 <br />
-<h2>$${\color{blue}Wazuh \space install \space on \space the \space Ubuntu \space machine}$$</h2>
+<h3>$${\color{blue}Wazuh \space install \space on \space the \space Ubuntu \space machine}$$</h3>
 In the console, run the commands to install Wazuh.
 
   ## $${\color{red}Command:}$$
@@ -267,7 +267,7 @@ After login you will be presented with the Wazuh dashboard.
 <img src="https://imgur.com/IyPwyrR.png" height="80%" width="80%" alt="Project walk-through"/>
 <br />
 <br /> 
-<h2>$${\color{blue}Setting \space up \space TheHive \space on \space an \space Ubuntu \space machine \space from \space the \space cloud(DigitalOcean):}$$</h2>
+<h3>$${\color{blue}Setting \space up \space TheHive \space on \space an \space Ubuntu \space machine \space from \space the \space cloud(DigitalOcean):}$$</h3>
 <p align="left">
 Setup another Ubuntu instance, add the Firewall as was done with the Ubuntu(Wazuh) droplet, and launch the console.
 <p align="center">
@@ -390,7 +390,7 @@ Open a new browser and paste the IP address of thehive(Ubuntu) at port 9000. The
 <img src="https://i.postimg.cc/j5MY0Zf8/31.png" height="80%" width="80%" alt="Project walk-through"/>
   <br />
   <br />
-<h2>$${\color{blue}Deploying \space a \space Wazuh \space agent \space from \space Windows \space client:}$$</h2>
+<h3>$${\color{blue}Deploying \space a \space Wazuh \space agent \space from \space Windows \space client:}$$</h3>
 <p align="left">
 To find out what all the username and passwords are run the following commands:
   
@@ -445,7 +445,7 @@ Check 'Services' in Windows and the Wazuh dashboard to see Wazuh running and age
   <br />
   <br /> 
 <p align="left">
-<h2>$${\color{blue}Setting \space up \space Windows \space client \space telementary:}$$</h2>  
+<h3>$${\color{blue}Setting \space up \space Windows \space client \space telementary:}$$</h3>  
 Locate in Windows 10 client the ossec.conf file and copy it into the same directory making it a backup.
 <p align="left">
 
@@ -505,7 +505,7 @@ Open the Windows Services and restart Wazuh.
   <br />
   <br /> 
 <p align="left">  
-<h2>$${\color{blue}Setup \space ossec.conf \space and \space Filebeat \space in \space Wazuh:}$$</h2>
+<h3>$${\color{blue}Setup \space ossec.conf \space and \space Filebeat \space in \space Wazuh:}$$</h3>
 
 Open Wazuh(Ubuntu) console and run the following commands to copy the ossec.conf as a backup. Run the following command to open a nano text editor to configure the ossec.conf file.
   
