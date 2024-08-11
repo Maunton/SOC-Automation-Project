@@ -329,17 +329,125 @@ Edit the following in the file for elasticsearch using nano.
 <br />
 <br /> 
 <p align="left">
-Run the following commands to start, enable and check the status of elasticseach.
+Run the following commands to start, enable and check the status of elasticsearch.
   
  ## Command:
     systemctl start elasticsearch
     systemctl enable elasticsearch
     systemctl status elasticsearch
 <p align="center">
-<img src=".png" height="80%" width="80%" alt="Project walk-through"/>
+<img src="https://i.postimg.cc/8Cfy4wk8/23.png" height="80%" width="80%" alt="Project walk-through"/>  
 <br />
 <br />
-
+<p align="left">
+Run the following commands to check the ownership of /opt/thp files, and change owner to thehive.
+  
+ ## Command:
+    ls -la /opt/thp
+    chown -R thehive:thehive /opt/thp
+<p align="center">
+<img src="https://i.postimg.cc/7hrYhBhq/24.png" height="80%" width="80%" alt="Project walk-through"/>  
+<br />
+<br />
+Run the following commands to edit the application/conf file for thehive and configure as shown.
+  
+ ## Command:
+    nano /etc/thehive/application.conf
+<p align="center">
+<img src="https://i.postimg.cc/4ywkGwhL/25.png" height="80%" width="80%" alt="Project walk-through"/>  
+<br />
+<br />
+<img src="https://i.postimg.cc/nz00cW0D/26.png" height="80%" width="80%" alt="Project walk-through"/>  
+<br />
+<br />
+<img src="https://i.postimg.cc/QMDbgDz7/27.png" height="80%" width="80%" alt="Project walk-through"/>  
+<br />
+<br />
+<img src="https://i.postimg.cc/SRHLnb8J/28.png" height="80%" width="80%" alt="Project walk-through"/>  
+<br />
+<br />
+<p align="left">
+Run the following commands to start, enable, and check status of thehive.
+  
+ ## Command:
+    systemctl start thehive
+    systemctl enable thehive
+    systemctl status thehive
+<p align="center">
+<img src="https://i.postimg.cc/d11GnVjh/29.png" height="80%" width="80%" alt="Project walk-through"/>  
+<br />
+<br />
+<p align="left">
+Open a new browser and paste the IP address of thehive(Ubuntu) at port 9000. The default username and password are:
+  
+ ## Username and Password:
+    admin@thehive.local
+    secret 
+<p align="center">
+<img src="https://i.postimg.cc/3x08j5G3/30.png" height="80%" width="80%" alt="Project walk-through"/>
+  <br />
+  <br />
+<img src="https://i.postimg.cc/j5MY0Zf8/31.png" height="80%" width="80%" alt="Project walk-through"/>
+  <br />
+  <br />
+<h3>Deploying a Wazuh agent into Windows 10</h3>
+<p align="left">
+To find out what all the username and passwords are run the following commands:
+  
+ ## Username and Password:
+    ls
+    tar -xvf wazuh-install-files.tar
+    cd wazuh-install-files/
+    ls
+    cat wazuh-passwords.txt
+    
+<p align="center">
+<img src="https://i.postimg.cc/dVJM1b9W/1.png" height="80%" width="80%" alt="Project walk-through"/>
+  <br />
+  <br />
+<p align="left">
+On the Wazuh dashboard click the 'Add agent'.
+<p align="center">
+<img src="https://i.postimg.cc/ZKFg1fh6/3.png" height="80%" width="80%" alt="Project walk-through"/>
+  <br />
+  <br />
+<p align="left">
+Choose the Windows version for the Windows 10 VM Client.
+<p align="center">
+<img src="https://i.postimg.cc/VN1NzZS1/4.png" height="80%" width="80%" alt="Project walk-through"/>
+  <br />
+  <br />
+<p align="left">
+The assigned server address will be the IP of the Wazuh(Ubuntu). Create an assigned agent name.
+<p align="center">
+<img src="https://i.postimg.cc/vm3GbYFL/5.png" height="80%" width="80%" alt="Project walk-through"/>
+  <br />
+  <br />
+<p align="left">
+Copy these commands and run them in Windows 10 PowerShell.
+<p align="center">
+<img src="https://i.postimg.cc/wvnMYqL4/6.png" height="80%" width="80%" alt="Project walk-through"/>
+  <br />
+  <br />
+<img src="https://i.postimg.cc/65r3FN3z/7.png" height="80%" width="80%" alt="Project walk-through"/>
+  <br />
+  <br />
+<img src="https://i.postimg.cc/1zt3gnKY/9.png" height="80%" width="80%" alt="Project walk-through"/>
+  <br />
+  <br /> 
+<p align="left">
+Check 'Services' in Windows and the Wazuh dashboard to see Wazuh running and agent successfully added.
+<p align="center">
+<img src="https://i.postimg.cc/WzSyJ38X/10.png" height="80%" width="80%" alt="Project walk-through"/>
+  <br />
+  <br /> 
+<img src="https://i.postimg.cc/QxxwZQNP/11.png" height="80%" width="80%" alt="Project walk-through"/>
+  <br />
+  <br />   
+  
+  
+  
+  
 
 
 
