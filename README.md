@@ -327,7 +327,27 @@ Edit the following in the file for elasticsearch using nano.
 <br />
 <img src="https://imgur.com/do2ablD.png" height="80%" width="80%" alt="Project walk-through"/>
 <br />
-<br />  
+<br /> 
+<p align="left">
+Run the following commands to start, enable and check the status of elasticseach.
+  
+ ## Command:
+    systemctl start elasticsearch
+    systemctl enable elasticsearch
+    systemctl status elasticsearch
+<p align="center">
+<img src="https://imgur.com/R4pUu4y.png" height="80%" width="80%" alt="Project walk-through"/>
+<br />
+<br />
+
+
+
+
+
+
+
+
+  
 </p>
 
 
