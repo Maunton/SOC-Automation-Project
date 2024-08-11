@@ -1,6 +1,4 @@
-
-<h1>$${\color{yellow}SOC \space Automation \space Project}$$</h1>
-
+ <h1>$${\color{yellow}SOC \space Automation \space Project}$$</h1>
 
 
 <h2>$${\color{blue}Description:}$$</h2>
@@ -493,7 +491,7 @@ Paste 'Microsoft-Windows-Sysmon/Operational' into the ossec.conf file and replac
   <br />
   <br /> 
 <p align="left">
-Modify the ossec.conf file as shown...
+Modify the ossec.conf file as shown...and save.
 <p align="center"> 
 <img src="https://imgur.com/7aUR92P.png" height="80%" width="80%" alt="Project walk-through"/> 
   <br />
@@ -506,7 +504,6 @@ Open the Windows Services and restart Wazuh.
   <br /> 
 <p align="left">  
 <h3>$${\color{blue}Setup \space ossec.conf \space and \space Filebeat \space in \space Wazuh:}$$</h3>
-
 Open Wazuh(Ubuntu) console and run the following commands to copy the ossec.conf as a backup. Run the following command to open a nano text editor to configure the ossec.conf file.
   
 ## $${\color{red}Command:}$$
@@ -516,11 +513,90 @@ Open Wazuh(Ubuntu) console and run the following commands to copy the ossec.conf
 <img src="https://imgur.com/ziVL4Kp.png" height="80%" width="80%" alt="Project walk-through"/> 
   <br />
   <br />   
+<p align="left">
+Modify the ossec.conf file as shown...and save.
+<p align="center"> 
+<img src="https://imgur.com/bR49jRZ.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left">
+Change directories and open filebeat.yml with nano.
+
+## $${\color{red}Command:}$$
+    cd /var/ossec/logs/archives/
+    nano /etc/filebeat/filebeat.yml  
+<p align="center"> 
+<img src="https://imgur.com/4kQF1q7.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left">
+Modify the filebeat.yml file as shown...and save.
+<p align="center"> 
+<img src="https://imgur.com/TD8pgOB.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br /> 
+<p align="left">
+Restart filebeat.
+
+## $${\color{red}Command:}$$
+    systemctl restart filebeat 
+<p align="center"> 
+<img src="https://imgur.com/kL5aaoZ.png" height="80%" width="80%" alt="Project walk-through"/>  
+  <br />
+  <br />
+<p align="left">  
+<h3>$${\color{blue}Install \space and \space Setup \space Mimikatz \space in \space Windows \space client}$$</h3>
+Open a browser in the Windows client machine and go to the Mimikatz github page. Download the mimikatz_trunk.zip file.
+
+## $${\color{red}Link:}$$
+    https://github.com/gentilkiwi/mimikatz/releases/tag/2.2.0-20220919
+<p align="center"> 
+<img src="https://imgur.com/0FVq0KZ.png" height="80%" width="80%" alt="Project walk-through"/>  
+  <br />
+  <br />
+<p align="left">
+In the downloads folder, extract the contents of the Mimikatz_trunk file.
+<p align="center"> 
+<img src="https://imgur.com/iacgmwu.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br /> 
+<p align="left">
+Copy the file path for Mimikatz x64 version.
+<p align="center"> 
+<img src="https://imgur.com/LR6fIrD.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left">
+Open PowerShell, run as administrator, and change directories to \Downloads\mimikatz_trunk\x64.
+<p align="center"> 
+<img src="https://imgur.com/iGPOq7U.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left">  
+Use the following command to run Mimikatz...
+
+## $${\color{red}Command:}$$
+    .\mimikatz.exe
+<p align="center"> 
+<img src="https://imgur.com/o4vRCNd.png" height="80%" width="80%" alt="Project walk-through"/>  
+  <br />
+  <br />
+<p align="left">  
+<h3>$${\color{blue}Setup \space Wazuh \space dashboard \space to \space capture \space Mimikats \space on \space   Windows \space client:}$$</h3>
+Open Wazuh dashboard, select Dashboard Management, select Index patterns, and selct Create index pattern.
+<p align="center"> 
+<img src="https://imgur.com/83vHJj7.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
 
 
 
-  
- 
+
+
+
+
+
+
 
 
 
