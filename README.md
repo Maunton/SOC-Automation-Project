@@ -23,7 +23,7 @@ The "SOC Automation Project by Maunton Cyber" is a comprehensive home lab series
 <br />
 
 
-<h2>$${\color{blue}Project \space Stack}$$</h2>
+<h2>$${\color{blue}Project \space Stack:}$$</h2>
 
 - <b>Wazuh:<br>
 -Role: Wazuh serves as the primary Security Information and Event Management (SIEM) tool in the stack. It collects, aggregates, and analyzes security events from various endpoints.<br>
@@ -227,7 +227,7 @@ In the console, run the commands to update and upgrade Ubuntu.
 <img src="https://imgur.com/Yivu48w.png" height="80%" width="80%" alt="Project walk-through"/>
 <br />
 <br />
-<h3>$${\color{blue}Wazuh \space install \space on \space the \space Ubuntu \space machine}$$</h3>
+<h3>$${\color{blue}Wazuh \space install \space on \space the \space Ubuntu \space machine:}$$</h3>
 In the console, run the commands to install Wazuh.
 
   ## $${\color{red}Command:}$$
