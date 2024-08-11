@@ -443,9 +443,77 @@ Check 'Services' in Windows and the Wazuh dashboard to see Wazuh running and age
   <br /> 
 <img src="https://i.postimg.cc/QxxwZQNP/11.png" height="80%" width="80%" alt="Project walk-through"/>
   <br />
+  <br /> 
+<p align="left">
+<h3>Setting up Windows client Telementary</h3>  
+Locate in Windows 10 client the ossec.conf file and copy it into the same directory making it a backup.
+<p align="left">
+
+  
+## File path:
+    C:\Program Files (x86)\ossec-agent
+<p align="center">
+<img src="https://imgur.com/xmYm8CL.png" height="80%" width="80%" alt="Project walk-through"/>
+  <br />
   <br />   
+<p align="left">
+Open the ossec.conf file with Notepad and run as administrator.
+<p align="center">
+<img src="https://imgur.com/11bavc3.png" height="80%" width="80%" alt="Project walk-through"/>
+  <br />
+  <br /> 
+<p align="left">
+In Windows 10 open the Event Viewer. Click Applications and Services Logs in the drop down.
+<p align="center">
+<img src="https://imgur.com/Y6MkGqu.png" height="80%" width="80%" alt="Project walk-through"/>
+  <br />
+  <br />
+<p align="left">
+Click the Sysmon directory.
+<p align="center">  
+<img src="https://imgur.com/BfhYFqv.png" height="80%" width="80%" alt="Project walk-through"/>
+  <br />
+  <br />
+<p align="left">
+Right click Operational and click Properties.
+<p align="center">   
+<img src="https://imgur.com/PlCOqkj.png" height="80%" width="80%" alt="Project walk-through"/>
+  <br />
+  <br />
+<p align="left">
+Copy the Full Name- 'Microsoft-Windows-Sysmon/Operational'.
+<p align="center"> 
+<img src="https://imgur.com/4e966WC.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br /> 
+<p align="left">
+Paste 'Microsoft-Windows-Sysmon/Operational' into the ossec.conf file and replacing application at location.
+<p align="center"> 
+<img src="https://imgur.com/wcFD0GE.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br /> 
+<p align="left">
+Modify the ossec.conf file as shown...
+<p align="center"> 
+<img src="https://imgur.com/7aUR92P.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left">
+Open the Windows Services and restart Wazuh.
+<p align="center"> 
+<img src="https://imgur.com/dWJqqIa.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br /> 
+<p align="left">
+Open Wazuh(Ubuntu) console and run the following commands to copy the ossec.conf as a backup. Run the following command to open a nano text editor to configure the ossec.conf file.
   
-  
+## Command:
+    cp /var/ossec/etc/ossec.conf ~/ossec-backup.conf
+     nano /var/ossec/etc/ossec.conf
+<p align="center"> 
+<img src="https://imgur.com/ziVL4Kp.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />   
   
   
 
