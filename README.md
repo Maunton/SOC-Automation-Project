@@ -336,7 +336,7 @@ Run the following commands to start, enable and check the status of elasticseach
     systemctl enable elasticsearch
     systemctl status elasticsearch
 <p align="center">
-<img src="https://imgur.com/R4pUu4y.png" height="80%" width="80%" alt="Project walk-through"/>
+<img src=".png" height="80%" width="80%" alt="Project walk-through"/>
 <br />
 <br />
 
