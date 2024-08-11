@@ -582,19 +582,131 @@ Use the following command to run Mimikatz...
   <br />
   <br />
 <p align="left">  
-<h3>$${\color{blue}Setup \space Wazuh \space dashboard \space to \space capture \space Mimikats \space on \space   Windows \space client:}$$</h3>
-Open Wazuh dashboard, select Dashboard Management, select Index patterns, and selct Create index pattern.
+<h3>$${\color{blue}Setup \space an \space Index \space pattern \space on \space Wazuh \space dashboard \space to \space capture \space Mimikats \space on \space   Windows \space client:}$$</h3>
+Open Wazuh dashboard, select 'Dashboard Management', select 'Index patterns', and select 'Create index pattern'.
+  <br />
+  <br />
 <p align="center"> 
 <img src="https://imgur.com/83vHJj7.png" height="80%" width="80%" alt="Project walk-through"/> 
   <br />
   <br />
-
-
-
-
-
-
-
+<p align="left">
+Name the Index pattern as 'wazuh-archives-**' and click 'next step'.
+<p align="center"> 
+<img src="https://imgur.com/e2wpcvq.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left">
+Select 'timestamp' and click 'Create index pattern'.
+<p align="center"> 
+<img src="https://imgur.com/Btf58RW.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left">
+On the Windows PowerShell run Mimikatz again.
+<p align="center"> 
+<img src="https://imgur.com/DEjTPQR.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left">
+On the Wazuh dashboard go to 'Discover' to view new alerts.
+<p align="center"> 
+<img src="https://imgur.com/NhhEvKg.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left">
+Select wazuh-archives-**, mimikatz, refresh, and select the first Timestamp.
+<p align="center"> 
+<img src="https://imgur.com/P46XxlA.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left">
+Inside the 'Document Details' there is important information regarding the new alert from the Windows client regarding mimikatz.
+<p align="center"> 
+<img src="https://imgur.com/jZKJOGa.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+<h3>$${\color{blue}Wazuh \space rules \space creation:}$$</h3>
+In Wazuh go to Management-Rules and click 'Manage rules files'.
+  <br />
+  <br />
+<p align="center"> 
+<img src="https://imgur.com/weF15SY.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />  
+<p align="left">
+Type 'sysmon' to find a similar rule with an id_1 and then select the sysmon rule with id_1.
+<p align="center"> 
+<img src="https://imgur.com/9ZDuv3t.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left">
+Copy one of these rules to build out a custom rule for mimikatz.
+<p align="center"> 
+<img src="https://imgur.com/gBjYs9g.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left">
+Go back to rules and click 'Custom rules'.
+<p align="center"> 
+<img src="https://imgur.com/iDu8Lb3.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left">
+Click the pencil icon to edit the new custom rule.
+<p align="center"> 
+<img src="https://imgur.com/izjXdL6.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left">
+Go down to the last rule and this is where we will paste our rule we copied.
+<p align="center"> 
+<img src="https://imgur.com/ylkheXk.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left">
+Modify the rule: change the rule id, change the field name, description, mitre id, and click 'Save'.
+<p align="center"> 
+<img src="https://imgur.com/4sMLK3j.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left">
+Click 'Restart'.
+<p align="center"> 
+<img src="https://imgur.com/2a2xz5w.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left">
+Now that we made a rule to be alerted from mimikatz usage, we will change the executable name to something else.
+<p align="center"> 
+<img src="https://imgur.com/vxILVF4.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<img src="https://imgur.com/1rj8zJh.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left">
+Rerun mimikatz as the new name change.
+<p align="center"> 
+<img src="https://imgur.com/oMTDnLD.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+View the Document Details for the new timestamp. The timestamp alerted of mimikatz usage even with the name changed.
+<p align="center"> 
+<img src="https://imgur.com/sx5COCv.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+<h3>$${\color{blue}Setup \space Shuffle:}$$</h3>
+Open Shuffler.io on a new browser and create a new account. Click 'Workflows'.
+  <br />
+  <br />
+<p align="center"> 
+<img src="https://imgur.com/zE61a1c.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
 
 
 
