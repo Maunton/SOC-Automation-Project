@@ -1,20 +1,20 @@
 
-<h1>SOC-Automation-Project</h1>
+<h1>$${\color{yellow}SOC \space Automation \space Project}$$</h1>
 
 
 
-<h2>Description:</h2>
+<h2>$${\color{blue}Description:}$$</h2>
 The "SOC Automation Project by Maunton Cyber" is a comprehensive home lab series designed to take viewers from the ground up in creating a fully functional Security Operations Center (SOC) process. The project focuses on integrating Security Orchestration, Automation, and Response (SOAR) tools, establishing effective case management with The Hive, and managing events using Wazuh. Through this project I have gained practical, hands-on experience in building, configuring, and troubleshooting SOC components, ultimately enhancing my cybersecurity operations skills.
 <br>
 <br>
-<h2>Key learnings:</h2>
+<h2>$${\color{blue}Key \space Learnings:}$$</h2>
 - Diagramming and Logical Planning: Creating a network diagram is a critical step in understanding the architecture of a SOC. This visual representation helps in mapping out data flow and understanding the components involved in the lab setup.
 <br>
 <br>
 - Workflow Understanding: The step-by-step process of sending events, triggering alerts, and performing actions is crucial in security operations. Each component in the workflow has a specific role, from sending events to enriching Indicators of Compromise (IOCs).
 <br>
 <br>
-<h2>Challenges faced:</h2>
+<h2>$${\color{blue}Challenges \space Faced:}$$</h2>
 - Error Management: Anticipating errors during the lab exercises is a part of the learning process. Errors can arise from incorrect configurations, misunderstanding of the tools, or logical errors in the setup.
 <br>
 <br>
@@ -23,7 +23,7 @@ The "SOC Automation Project by Maunton Cyber" is a comprehensive home lab series
 <br />
 
 
-<h2>Project Stack:</h2>
+<h2>$${\color{blue}Project \space Stack}$$</h2>
 
 - <b>Wazuh:<br>
 -Role: Wazuh serves as the primary Security Information and Event Management (SIEM) tool in the stack. It collects, aggregates, and analyzes security events from various endpoints.<br>
@@ -41,11 +41,11 @@ The "SOC Automation Project by Maunton Cyber" is a comprehensive home lab series
   -Role: Provides the infrastructure where Wazuh Manager, The Hive, and Shuffle are hosted.<br>
   -Functionality: These services are hosted in the cloud, allowing for scalability and accessibility. The cloud setup ensures that the SOC components can interact with each other regardless of the physical location, enabling a robust and distributed SOC environment.</b>
 
-<h1>Project walk-through:</h1>
+<h1>$${\color{yellow}Project \space Walk-through:}$$</h1>
   
 <br />
 
-<h3>SOC Automation Workflow Design:</h3>
+<h2>$${\color{blue}SOC \space Automation \space Workflow \space Design:}$$</h2>
 This flowchart shows how security events are managed within an organization, covering everything from event collection and analysis to alerting, enrichment, and communication.<br>
 <br>1. Windows 10 Client - Wazuh Agent (Send Events): This is an agent installed on a Windows 10 machine. It gathers security-related data like log entries, network activity, or system changes and sends this information to the Wazuh Manager.<br>
 <br>2. Wazuh Manager (Receive Events): The Wazuh Manager acts as the central hub that receives and processes events from the agent. It aggregates, normalizes, and analyzes these events.<br>
@@ -60,7 +60,7 @@ This flowchart shows how security events are managed within an organization, cov
 <img src="https://imgur.com/ClWhmJW.png" height="80%" width="80%" alt="Project walk-through"/>
 <br />
 <br />
-<h3>Setting up Windows 10 ISO on a virtual machine and installing Sysmon into Windows 10 VM:</h3>
+<h2>$${\color{blue}Setting \space up \space Windows \space 10 \space ISO \space on \space a \space virtual \space machine \space and \space installing \space Sysmon \space in \space the \space Windows \space VM:}$$</h2>
 In your browser, go to the download for Windows 10 and click the 'Download Now' for Create Windows installation media.
 <br />
 <br /> 
@@ -144,13 +144,13 @@ Open up PowerShell and run as Administrator.
 Change Directories into the Downloads/Sysmon folder.<br />
 Run the command to install Sysmon64.
 
-  ## Command:
+  ## $${\color{red}Command:}$$
       .\Sysmon64.exe -i .\sysmonconfig.xml
 <p align="center">
 <img src="https://imgur.com/MTBXSDa.png" height="80%" width="80%" alt="Project walk-through"/>
 <br />
 <br />
-<h3>Setting up an instance in the cloud for Wazuh.</h3>
+<h2>$${\color{blue}Setting \space up \space an \space instance(Droplet) \space in \space the \space cloud \space for \space Wazuh:}$$</h2>
 <br />
 <p align="left">
 Create an Ubuntu machine on the cloud for the Wazuh instance. I chose Digital Ocean where each intance is called a 'Droplet'.
@@ -221,16 +221,16 @@ To start your Ubuntu(Wazuh) instance, select the 'Launch Droplet Console'.
 <p align="left">
 In the console, run the commands to update and upgrade Ubuntu.
 
-  ## Command:
+  ## $${\color{red}Command:}$$
     apt-get update && apt-get upgrade -y 
 <p align="center">
 <img src="https://imgur.com/Yivu48w.png" height="80%" width="80%" alt="Project walk-through"/>
 <br />
 <br />
-<h3>Wazuh install on the Ubuntu machine</h3>
+<h2>$${\color{blue}Wazuh \space install \space on \space the \space Ubuntu \space machine}$$</h2>
 In the console, run the commands to install Wazuh.
 
-  ## Command:
+  ## $${\color{red}Command:}$$
     curl -sO https://packages.wazuh.com/4.8/wazuh-install.sh && sudo bash ./wazuh-install.sh -a
 <p align="center">
 <img src="https://imgur.com/IHhoYBN.png" height="80%" width="80%" alt="Project walk-through"/>
@@ -267,7 +267,7 @@ After login you will be presented with the Wazuh dashboard.
 <img src="https://imgur.com/IyPwyrR.png" height="80%" width="80%" alt="Project walk-through"/>
 <br />
 <br /> 
-<h3>Setting up TheHive on an Ubuntu machine from the cloud(DigitalOcean).</h3>
+<h2>$${\color{blue}Setting \space up \space TheHive \space on \space an \space Ubuntu \space machine \space from \space the \space cloud(DigitalOcean):}$$</h2>
 <p align="left">
 Setup another Ubuntu instance, add the Firewall as was done with the Ubuntu(Wazuh) droplet, and launch the console.
 <p align="center">
@@ -277,7 +277,7 @@ Setup another Ubuntu instance, add the Firewall as was done with the Ubuntu(Wazu
 <p align="left">
 From the console use nano to edit the cassandra.yaml file.
   
- ## Command:
+ ## $${\color{red}Command:}$$
     nano /etc/cassandra/cassandra.yaml  
 <p align="center">
 <img src="https://imgur.com/43iJA6R.png" height="80%" width="80%" alt="Project walk-through"/>
@@ -301,7 +301,7 @@ Edit the following...and save the file.
 <p align="left">
 Stop the service for cassandra, remove files from /var/lic/cassandra/*, start cassandra.service, and check the status for active to know it is running.
   
- ## Command:
+ ## $${\color{red}Command:}$$
     systemctl stop cassandra.service
     rm -rf /var/lic/cassandra/*
     systemctl start cassandra.service
@@ -313,7 +313,7 @@ Stop the service for cassandra, remove files from /var/lic/cassandra/*, start ca
 <p align="left">
 Edit the following in the file for elasticsearch using nano.
   
- ## Command:
+ ## $${\color{red}Command:}$$
     nano /etc/elasticsearch/elasticsearch.yml
 <p align="center">
 <img src="https://imgur.com/R4pUu4y.png" height="80%" width="80%" alt="Project walk-through"/>
@@ -331,7 +331,7 @@ Edit the following in the file for elasticsearch using nano.
 <p align="left">
 Run the following commands to start, enable and check the status of elasticsearch.
   
- ## Command:
+ ## $${\color{red}Command:}$$
     systemctl start elasticsearch
     systemctl enable elasticsearch
     systemctl status elasticsearch
@@ -342,7 +342,7 @@ Run the following commands to start, enable and check the status of elasticsearc
 <p align="left">
 Run the following commands to check the ownership of /opt/thp files, and change owner to thehive.
   
- ## Command:
+ ## $${\color{red}Command:}$$
     ls -la /opt/thp
     chown -R thehive:thehive /opt/thp
 <p align="center">
@@ -351,7 +351,7 @@ Run the following commands to check the ownership of /opt/thp files, and change 
 <br />
 Run the following commands to edit the application/conf file for thehive and configure as shown.
   
- ## Command:
+ ## $${\color{red}Command:}$$
     nano /etc/thehive/application.conf
 <p align="center">
 <img src="https://i.postimg.cc/4ywkGwhL/25.png" height="80%" width="80%" alt="Project walk-through"/>  
@@ -369,7 +369,7 @@ Run the following commands to edit the application/conf file for thehive and con
 <p align="left">
 Run the following commands to start, enable, and check status of thehive.
   
- ## Command:
+ ## $${\color{red}Command:}$$
     systemctl start thehive
     systemctl enable thehive
     systemctl status thehive
@@ -380,7 +380,7 @@ Run the following commands to start, enable, and check status of thehive.
 <p align="left">
 Open a new browser and paste the IP address of thehive(Ubuntu) at port 9000. The default username and password are:
   
- ## Username and Password:
+ ## $${\color{red}Usernames \space and \space Passwords:}$$
     admin@thehive.local
     secret 
 <p align="center">
@@ -390,11 +390,11 @@ Open a new browser and paste the IP address of thehive(Ubuntu) at port 9000. The
 <img src="https://i.postimg.cc/j5MY0Zf8/31.png" height="80%" width="80%" alt="Project walk-through"/>
   <br />
   <br />
-<h3>Deploying a Wazuh agent into Windows 10</h3>
+<h2>$${\color{blue}Deploying \space a \space Wazuh \space agent \space from \space Windows \space client:}$$</h2>
 <p align="left">
 To find out what all the username and passwords are run the following commands:
   
- ## Username and Password:
+ ## $${\color{red}Command:}$$
     ls
     tar -xvf wazuh-install-files.tar
     cd wazuh-install-files/
@@ -445,12 +445,12 @@ Check 'Services' in Windows and the Wazuh dashboard to see Wazuh running and age
   <br />
   <br /> 
 <p align="left">
-<h3>Setting up Windows client Telementary</h3>  
+<h2>$${\color{blue}Setting \space up \space Windows \space client \space telementary:}$$</h2>  
 Locate in Windows 10 client the ossec.conf file and copy it into the same directory making it a backup.
 <p align="left">
 
   
-## File path:
+## $${\color{red}File \space path:}$$
     C:\Program Files (x86)\ossec-agent
 <p align="center">
 <img src="https://imgur.com/xmYm8CL.png" height="80%" width="80%" alt="Project walk-through"/>
@@ -504,20 +504,23 @@ Open the Windows Services and restart Wazuh.
 <img src="https://imgur.com/dWJqqIa.png" height="80%" width="80%" alt="Project walk-through"/> 
   <br />
   <br /> 
-<p align="left">
+<p align="left">  
+<h2>$${\color{blue}Setup \space ossec.conf \space and \space Filebeat \space in \space Wazuh:}$$</h2>
+
 Open Wazuh(Ubuntu) console and run the following commands to copy the ossec.conf as a backup. Run the following command to open a nano text editor to configure the ossec.conf file.
   
-## Command:
+## $${\color{red}Command:}$$
     cp /var/ossec/etc/ossec.conf ~/ossec-backup.conf
-     nano /var/ossec/etc/ossec.conf
+    nano /var/ossec/etc/ossec.conf
 <p align="center"> 
 <img src="https://imgur.com/ziVL4Kp.png" height="80%" width="80%" alt="Project walk-through"/> 
   <br />
   <br />   
-  
-  
 
 
+
+  
+ 
 
 
 
@@ -529,7 +532,7 @@ Open Wazuh(Ubuntu) console and run the following commands to copy the ossec.conf
 
 <!--
  ```diff
-- text in red
+<!
 + text in green
 ! text in orange
 # text in gray
