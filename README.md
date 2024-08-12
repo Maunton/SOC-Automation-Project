@@ -807,7 +807,7 @@ Here all the telemetary from Wazuh can be seen. Copy the hash value as it will b
   <br />
   <br />
 <p align="left"> 
-Click on the Change Me workflow and select Regex capture group under Find Actions.
+Click on the Change Me workflow and select Regex capture group under Find Actions. Under Input data, click the plus symbol, and select hash from the drop down.
 <p align="center"> 
 <img src="https://i.postimg.cc/T3tZzC2J/16.png" height="80%" width="80%" alt="Project walk-through"/> 
   <br />
@@ -824,14 +824,57 @@ Paste the regex from gpt into Regex. Save the flow. Click the running person.
 <img src="https://i.postimg.cc/XqZJ5p2T/18.png" height="80%" width="80%" alt="Project walk-through"/> 
   <br />
   <br />
-
-
-
-
-
-
-
-
+<p align="left"> 
+Click the refresh symbol with the two arrows. Click Change me.
+<p align="center"> 
+<img src="https://i.postimg.cc/MTgcd7jW/19.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Click Change me. It can be seen here that it parsed out the SHA256 hash.
+<p align="center"> 
+<img src="https://i.postimg.cc/W1ShQLJY/20.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Rename the Change me to SHA256_Regex.
+<p align="center"> 
+<img src="https://i.postimg.cc/L5BHLLtQ/21.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Click the Apps, search for Virustotal, and drag n drop into the workflow.
+<p align="center"> 
+<img src="https://i.postimg.cc/PrggTP1P/22.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Go onto Virustotal and sign up with an account.
+<p align="center"> 
+<img src="https://i.postimg.cc/HW4zVjGr/23.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Enter the API key from Virustotal and Authenticate.
+<p align="center"> 
+<img src="https://i.postimg.cc/8PfhLC9d/24.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Change the hash over to list, save the workflow, and click the running person.
+<p align="center"> 
+<img src="https://i.postimg.cc/28H5GpLz/25.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<img src="https://i.postimg.cc/vZJb2GYd/25b.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Refresh the Details, open the status for Virustotal, and Status is a success.
+<p align="center"> 
+<img src="https://i.postimg.cc/wj6G6Pws/26.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
 
 
 
