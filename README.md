@@ -891,7 +891,7 @@ Fill out the name and description and click Confirm.
   <br />
   <br />
 <p align="left"> 
-Click upon the new ly created Organization to open it.
+Click upon the newly created Organization to open it.
 <p align="center"> 
 <img src="https://imgur.com/AgqO1Cp.png" height="80%" width="80%" alt="Project walk-through"/> 
   <br />
