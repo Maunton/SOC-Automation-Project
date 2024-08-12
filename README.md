@@ -831,7 +831,7 @@ Click the refresh symbol with the two arrows. Click Change me.
   <br />
   <br />
 <p align="left"> 
-Click Change me. It can be seen here that it parsed out the SHA256 hash.
+It can be seen here that it parsed out the SHA256 hash.
 <p align="center"> 
 <img src="https://i.postimg.cc/W1ShQLJY/20.png" height="80%" width="80%" alt="Project walk-through"/> 
   <br />
