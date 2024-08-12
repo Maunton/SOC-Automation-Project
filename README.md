@@ -827,7 +827,7 @@ Paste the regex from gpt into Regex. Save the flow. Click the running person.
 <p align="left"> 
 Click the refresh symbol with the two arrows. Click Change me.
 <p align="center"> 
-<img src="https://i.postimg.cc/MTgcd7jW/19.png" height="80%" width="80%" alt="Project walk-through"/> 
+<img src="https://imgur.com/eUFwBoy.png" height="80%" width="80%" alt="Project walk-through"/> 
   <br />
   <br />
 <p align="left"> 
@@ -875,6 +875,94 @@ Refresh the Details, open the status for Virustotal, and Status is a success.
 <img src="https://i.postimg.cc/wj6G6Pws/26.png" height="80%" width="80%" alt="Project walk-through"/> 
   <br />
   <br />
+<p align="left"> 
+<h3>$${\color{blue}TheHive \space will \space be \space added \space to \space the \space flow \space so \space the \space alert \space will \space be \space sent \space there \space for \space case \space management:}$$</h3>
+Open TheHive on a new browser by using thehive(Ubuntu) IP address followed by port 9000. Login using the admin default credentials. Add an Organization by clicking the plus symbol.
+  <br />
+  <br />
+<p align="center"> 
+<img src="https://imgur.com/v7YcPSr.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Fill out the name and description and click Confirm.
+<p align="center"> 
+<img src="https://imgur.com/txLCZdV.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Click upon the new ly created Organization to open it.
+<p align="center"> 
+<img src="https://imgur.com/AgqO1Cp.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Two users will be created here. Click Add User.
+<p align="center"> 
+<img src="https://imgur.com/olWPig6.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+For the first user, fill out the name, Login, and Type will be Normal.
+<p align="center"> 
+<img src="https://imgur.com/hzLeQ0x.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Scroll down and create a Password and click Confirm.
+<p align="center"> 
+<img src="https://imgur.com/SJKcYmb.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Click the plus symbol to add another user, fill out the name, login, Type will be service, and create an API Key. Copy the API Key and click confirm.
+<p align="center"> 
+<img src="https://imgur.com/eAwTGfr.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+On Shuffle, search Apps for TheHive, drag, and drop it into the workflow.
+<p align="center"> 
+<img src="https://imgur.com/Clzy4Ji.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Add the API Key from TheHive Dashboard, the URL of TheHive dashboard, and click Submit.
+<p align="center"> 
+<img src="https://imgur.com/9KZMiU3.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Change Find Actions to Create alert.
+<p align="center"> 
+<img src="https://imgur.com/F8CiPil.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Insert the following into each field or the Body.
+<p align="center"> 
+<img src="https://imgur.com/JYyZw6F.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Save the Workflow, click the running person, and click TheHive to view the results.
+<p align="center"> 
+<img src="https://imgur.com/eqQYzfR.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+On TheHive dashboard, login as the new user where a new alert detecting Mimikatz can be viewed.
+<p align="center"> 
+<img src="https://imgur.com/eqQYzfR.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Click on the alert to view all the information.
+<p align="center"> 
+<img src="https://imgur.com/rT4TfcK.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+
 
 
 
