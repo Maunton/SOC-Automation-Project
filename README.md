@@ -1,4 +1,4 @@
- <h1>$${\color{yellow}SOC \space Automation \space Project}$$</h1>
+<h1>$${\color{yellow}SOC \space Automation \space Project}$$</h1>
 
 
 <h2>$${\color{blue}Description:}$$</h2>
@@ -747,7 +747,15 @@ In the Wazuh console open the /var/ossec/etc/ossec.conf file with nano.
   <br />
   <br />
 <p align="left"> 
-Inside of the ossec.conf file paste the Webhook URI. Save the file.
+Inside of the ossec.conf file paste the integration tag with the Webhook URI. Save the file.
+
+ ## $${\color{red}Integration tag:}$$
+    <integration>
+      <name>shuffle</name>
+      <hook_url>https://shuffler.io/api/v1/hooks/webhook_ec487b29-d323-4b95-a5d2-e229cb7b12d2 </hook_url>
+      <rule_id>100002</rule_id>
+      <alert_format>json</alert_format>
+    </integration>
 <p align="center"> 
 <img src="https://imgur.com/2QaaQ83.png" height="80%" width="80%" alt="Project walk-through"/> 
   <br />
@@ -762,12 +770,60 @@ Restart wazuh-manager.service. Check the status.
 <img src="https://imgur.com/dWG5b2D.png" height="80%" width="80%" alt="Project walk-through"/> 
   <br />
   <br />
-
-
-
-
-
-
+<p align="left"> 
+Regenerate the mimikatz on the Windows client.
+<p align="center"> 
+<img src="https://i.postimg.cc/sxLtFLFR/11.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+On Shuffle, click on the Webhook, and click Start.
+<p align="center"> 
+<img src="https://i.postimg.cc/VvJgpW65/12.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Click on the person running.
+<p align="center"> 
+<img src="https://i.postimg.cc/SKmrkhsB/13.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Click on the new run.
+<p align="center"> 
+<img src="https://i.postimg.cc/g2zsPprf/14.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Select the Execution Arguments.
+<p align="center"> 
+<img src="https://i.postimg.cc/d3n72bvy/15a.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Here all the telemetary from Wazuh can be seen. Copy the hash value as it will be needed to send to VirusTotal.
+<p align="center"> 
+<img src="https://i.postimg.cc/1ztZXb7d/15b.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Click on the Change Me workflow and select Regex capture group under Find Actions.
+<p align="center"> 
+<img src="https://i.postimg.cc/T3tZzC2J/16.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Chat gpt is being used to write a regular expression from the hash copied from the telementary.
+<p align="center"> 
+<img src="https://i.postimg.cc/9FpS9J9H/17.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Paste the regex from gpt into Regex. Save the flow. Click the running person.
+<p align="center"> 
+<img src="https://i.postimg.cc/XqZJ5p2T/18.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
 
 
 
