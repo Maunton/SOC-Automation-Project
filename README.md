@@ -991,7 +991,7 @@ The results were Status Success.
 <p align="left"> 
 The email was received by the SOC Team.
 <p align="center"> 
-<img src="https://imgur.com/fVvhOlc.png" height="80%" width="80%" alt="Project walk-through"/> 
+<img src="https://imgur.com/T6PqZ0n.png" height="80%" width="80%" alt="Project walk-through"/> 
   <br />
   <br />
 
