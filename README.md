@@ -707,6 +707,78 @@ Open Shuffler.io on a new browser and create a new account. Click 'Workflows'.
 <img src="https://imgur.com/zE61a1c.png" height="80%" width="80%" alt="Project walk-through"/> 
   <br />
   <br />
+<p align="left"> 
+Click 'New Workflow".
+<p align="center"> 
+<img src="https://imgur.com/qn7J4Xb.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Name the project, enter Usecase, put a description, and Save Changes.
+<p align="center"> 
+<img src="https://imgur.com/HdgOtXj.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+The initial workflow space is now open. This where Apps and Triggers will be added.
+<p align="center"> 
+<img src="https://imgur.com/BZY7YkH.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Select 'Triggers' and drag 'Webhooks' over to the workspace. Click on Webhooks, rename it and copy the webhook URI.
+<p align="center"> 
+<img src="https://imgur.com/063Ksvo.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Click 'Change Me'. Find actions is Repeat back to me. Call is $exec.
+<p align="center"> 
+<img src="https://imgur.com/Tvx7IWx.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+In the Wazuh console open the /var/ossec/etc/ossec.conf file with nano.
+
+ ## $${\color{red}Command:}$$
+    nano /var/ossec/etc/ossec.conf 
+<p align="center"> 
+<img src="https://imgur.com/cRcADOJ.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Inside of the ossec.conf file paste the Webhook URI. Save the file.
+<p align="center"> 
+<img src="https://imgur.com/2QaaQ83.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Restart wazuh-manager.service. Check the status.
+
+ ## $${\color{red}Command:}$$
+    sysytemctl restart wazuh-manager.service 
+    sysytemctl status wazuh-manager.service
+<p align="center"> 
+<img src="https://imgur.com/dWG5b2D.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
