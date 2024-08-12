@@ -2,7 +2,7 @@
 
 
 <h2>$${\color{blue}Description:}$$</h2>
-The "SOC Automation Project by Maunton Cyber" is a comprehensive home lab series designed to take viewers from the ground up in creating a fully functional Security Operations Center (SOC) process. The project focuses on integrating Security Orchestration, Automation, and Response (SOAR) tools, establishing effective case management with The Hive, and managing events using Wazuh. Through this project I have gained practical, hands-on experience in building, configuring, and troubleshooting SOC components, ultimately enhancing my cybersecurity operations skills.
+The "SOC Automation Project by Maunton Cyber" is a comprehensive home lab series designed to take viewers from the ground up in creating a fully functional Security Operations Center (SOC) process. The project focuses on integrating tools, establishing effective case management with The Hive, and managing events using Wazuh. Through this project I have gained practical, hands-on experience in building, configuring, and troubleshooting SOC components, ultimately enhancing my cybersecurity operations skills.
 <br>
 <br>
 <h2>$${\color{blue}Key \space Learnings:}$$</h2>
