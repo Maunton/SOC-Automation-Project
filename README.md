@@ -847,7 +847,6 @@ Click the Apps, search for Virustotal, and drag n drop into the workflow.
 <p align="center"> 
 <img src="https://i.postimg.cc/PrggTP1P/22.png" height="80%" width="80%" alt="Project walk-through"/> 
   <br />
-  <br />
 <p align="left"> 
 Go onto Virustotal and sign up with an account.
 <p align="center"> 
