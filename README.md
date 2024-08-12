@@ -621,7 +621,7 @@ Select wazuh-archives-**, mimikatz, refresh, and select the first Timestamp.
   <br />
   <br />
 <p align="left">
-Inside the 'Document Details' there is important information regarding the new alert from the Windows client regarding mimikatz.
+Inside the 'Document Details' there is important information about the new alert from the Windows client regarding mimikatz.
 <p align="center"> 
 <img src="https://imgur.com/jZKJOGa.png" height="80%" width="80%" alt="Project walk-through"/> 
   <br />
