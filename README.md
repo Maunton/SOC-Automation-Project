@@ -953,7 +953,7 @@ Save the Workflow, click the running person, and click TheHive to view the resul
 <p align="left"> 
 On TheHive dashboard, login as the new user where a new alert detecting Mimikatz can be viewed.
 <p align="center"> 
-<img src="https://imgur.com/eqQYzfR.png" height="80%" width="80%" alt="Project walk-through"/> 
+<img src="https://imgur.com/HTTQrke.png" height="80%" width="80%" alt="Project walk-through"/> 
   <br />
   <br />
 <p align="left"> 
