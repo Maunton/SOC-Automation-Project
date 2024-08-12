@@ -962,6 +962,38 @@ Click on the alert to view all the information.
 <img src="https://imgur.com/rT4TfcK.png" height="80%" width="80%" alt="Project walk-through"/> 
   <br />
   <br />
+<h3>$${\color{blue}Adding \space email \space to \space the \space Workflow \space so \space the \space SOC \space will \space receive \space the \space alert:}$$</h3>
+In the Workflow search for email in the Apps, activate it to the workflow, drag, and drop it onto the Workflow board.
+  <br />
+  <br />
+<p align="center"> 
+<img src="https://imgur.com/0K76VQ6.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Connect Virustotal to Email, add Recipients email address, add a Subject, add Execution Time/ Execution Time to the body, click save, and click the running person.
+<p align="center"> 
+<img src="https://imgur.com/GXLbmYL.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+Click Email to view the results.
+<p align="center"> 
+<img src="https://imgur.com/09KhrH3.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+The results were Status Success.
+<p align="center"> 
+<img src="https://imgur.com/fVvhOlc.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
+<p align="left"> 
+The email was received by the SOC Team.
+<p align="center"> 
+<img src="https://imgur.com/fVvhOlc.png" height="80%" width="80%" alt="Project walk-through"/> 
+  <br />
+  <br />
 
 
 
