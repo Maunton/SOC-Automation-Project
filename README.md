@@ -971,7 +971,7 @@ In the Workflow search for email in the Apps, activate it to the workflow, drag,
   <br />
   <br />
 <p align="left"> 
-Connect Virustotal to Email, add Recipients email address, add a Subject, add Execution Time/ Execution Time to the body, click save, and click the running person.
+Connect Virustotal to Email, add Recipients email address, add a Subject, add Execution Title/ Execution Time to the body, click save, and click the running person.
 <p align="center"> 
 <img src="https://imgur.com/GXLbmYL.png" height="80%" width="80%" alt="Project walk-through"/> 
   <br />
