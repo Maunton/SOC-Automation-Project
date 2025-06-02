@@ -1,4 +1,4 @@
-<h1>$${\color{yellow}SOC \space Automation \space Project}$$</h1>
+<h1 style="color:orange;">SOC Automation Project</h1>
 
 
 <h2>$${\color{blue}Description:}$$</h2>
