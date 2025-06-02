@@ -1,4 +1,4 @@
-<h1 align="center" style="color: #f0db4f;">SOC Automation Project</h1>
+<h1 align="center" style="color: yellow;">SOC Automation Project</h1>
 
 
 <h2 style="color: #4f87f0;">Description:</h2>
