@@ -1,18 +1,18 @@
-<h1 style="color:orange;">SOC Automation Project</h1>
+<h1 align="center" style="color: #f0db4f;">SOC Automation Project</h1>
 
 
-<h2>$${\color{blue}Description:}$$</h2>
+<h2 style="color: #4f87f0;">Description:</h2>
 The "SOC Automation Project by Maunton Cyber" is a comprehensive home lab series designed to take viewers from the ground up in creating a fully functional Security Operations Center (SOC) process. The project focuses on integrating tools, establishing effective case management with The Hive, and managing events using Wazuh. Through this project I have gained practical, hands-on experience in building, configuring, and troubleshooting SOC components, ultimately enhancing my cybersecurity operations skills.
 <br>
 <br>
-<h2>$${\color{blue}Key \space Learnings:}$$</h2>
+<h2 style="color: #4f87f0;">Key Learnings:</h2>
 - Diagramming and Logical Planning: Creating a network diagram is a critical step in understanding the architecture of a SOC. This visual representation helps in mapping out data flow and understanding the components involved in the lab setup.
 <br>
 <br>
 - Workflow Understanding: The step-by-step process of sending events, triggering alerts, and performing actions is crucial in security operations. Each component in the workflow has a specific role, from sending events to enriching Indicators of Compromise (IOCs).
 <br>
 <br>
-<h2>$${\color{blue}Challenges \space Faced:}$$</h2>
+<h2 style="color: #4f87f0;">Challenges Faced:</h2>
 - Error Management: Anticipating errors during the lab exercises is a part of the learning process. Errors can arise from incorrect configurations, misunderstanding of the tools, or logical errors in the setup.
 <br>
 <br>
@@ -21,7 +21,7 @@ The "SOC Automation Project by Maunton Cyber" is a comprehensive home lab series
 <br />
 
 
-<h2>$${\color{blue}Project \space Stack:}$$</h2>
+<h2 style="color: #4f87f0;">Project Stack:</h2>
 
 - <b>Wazuh:<br>
 -Role: Wazuh serves as the primary Security Information and Event Management (SIEM) tool in the stack. It collects, aggregates, and analyzes security events from various endpoints.<br>
@@ -39,11 +39,11 @@ The "SOC Automation Project by Maunton Cyber" is a comprehensive home lab series
   -Role: Provides the infrastructure where Wazuh Manager, The Hive, and Shuffle are hosted.<br>
   -Functionality: These services are hosted in the cloud, allowing for scalability and accessibility. The cloud setup ensures that the SOC components can interact with each other regardless of the physical location, enabling a robust and distributed SOC environment.</b>
 
-<h1>$${\color{yellow}Project \space Walk-through:}$$</h1>
+<h1 align="center" style="color: #f0db4f;">Project Walk-Through</h1>
   
 <br />
 
-<h2>$${\color{blue}SOC \space Automation \space Workflow \space Design:}$$</h2>
+<h2 style="color: #4f87f0;">SOC Automation Workflow Design:</h2>
 This flowchart shows how security events are managed within an organization, covering everything from event collection and analysis to alerting, enrichment, and communication.<br>
 <br>1. Windows 10 Client - Wazuh Agent (Send Events): This is an agent installed on a Windows 10 machine. It gathers security-related data like log entries, network activity, or system changes and sends this information to the Wazuh Manager.<br>
 <br>2. Wazuh Manager (Receive Events): The Wazuh Manager acts as the central hub that receives and processes events from the agent. It aggregates, normalizes, and analyzes these events.<br>
