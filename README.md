@@ -58,7 +58,7 @@ This flowchart shows how security events are managed within an organization, cov
 <img src="https://imgur.com/ClWhmJW.png" height="80%" width="80%" alt="Project walk-through"/>
 <br />
 <br />
-<h3>$${\color{blue}Setting \space up \space Windows \space 10 \space ISO \space on \space a \space virtual \space machine \space and \space installing \space Sysmon \space in \space the \space Windows \space VM:}$$</h3>
+<h3>$${Setting up Windows 10 ISO on a virtual machine and installing Sysmon in the Windows VM:}$$</h3>
 In your browser, go to the download for Windows 10 and click the 'Download Now' for Create Windows installation media.
 <br />
 <br /> 
@@ -506,7 +506,7 @@ Open the Windows Services and restart Wazuh.
 <h3>$${Setup ossec.conf and Filebeat in Wazuh:}$$</h3>
 Open Wazuh(Ubuntu) console and run the following commands to copy the ossec.conf as a backup. Run the following command to open a nano text editor to configure the ossec.conf file.
   
-## $${\color{red}Command:}$$
+## $${Command:}$$
     cp /var/ossec/etc/ossec.conf ~/ossec-backup.conf
     nano /var/ossec/etc/ossec.conf
 <p align="center"> 
@@ -988,7 +988,7 @@ The results were Status Success.
   <br />
   <br />
 <p align="left"> 
-+The email was received by the SOC Team.
++ The email was received by the SOC Team.
 <p align="center"> 
 <img src="https://imgur.com/T6PqZ0n.png" height="80%" width="80%" alt="Project walk-through"/> 
   <br />
