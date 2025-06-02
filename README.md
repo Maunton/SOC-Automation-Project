@@ -148,7 +148,7 @@ Run the command to install Sysmon64.
 <img src="https://imgur.com/MTBXSDa.png" height="80%" width="80%" alt="Project walk-through"/>
 <br />
 <br />
-<h3>$${\color{blue}Setting \space up \space an \space instance(Droplet) \space in \space the \space cloud \space for \space Wazuh:}$$</h3>
+<h3>$${Setting up an instance(Droplet) in the cloud for Wazuh:}$$</h3>
 <br />
 <p align="left">
 Create an Ubuntu machine on the cloud for the Wazuh instance. I chose Digital Ocean where each intance is called a 'Droplet'.
@@ -219,16 +219,16 @@ To start your Ubuntu(Wazuh) instance, select the 'Launch Droplet Console'.
 <p align="left">
 In the console, run the commands to update and upgrade Ubuntu.
 
-  ## $${\color{red}Command:}$$
+  ## $${Command:}$$
     apt-get update && apt-get upgrade -y 
 <p align="center">
 <img src="https://imgur.com/Yivu48w.png" height="80%" width="80%" alt="Project walk-through"/>
 <br />
 <br />
-<h3>$${\color{blue}Wazuh \space install \space on \space the \space Ubuntu \space machine:}$$</h3>
+<h3>$${Wazuh install on the Ubuntu machine:}$$</h3>
 In the console, run the commands to install Wazuh.
 
-  ## $${\color{red}Command:}$$
+  ## $${Command:}$$
     curl -sO https://packages.wazuh.com/4.8/wazuh-install.sh && sudo bash ./wazuh-install.sh -a
 <p align="center">
 <img src="https://imgur.com/IHhoYBN.png" height="80%" width="80%" alt="Project walk-through"/>
@@ -265,7 +265,7 @@ After login you will be presented with the Wazuh dashboard.
 <img src="https://imgur.com/IyPwyrR.png" height="80%" width="80%" alt="Project walk-through"/>
 <br />
 <br /> 
-<h3>$${\color{blue}Setting \space up \space TheHive \space on \space an \space Ubuntu \space machine \space from \space the \space cloud(DigitalOcean):}$$</h3>
+<h3>$${Setting up TheHive on an Ubuntu machine from the cloud(DigitalOcean):}$$</h3>
 <p align="left">
 Setup another Ubuntu instance, add the Firewall as was done with the Ubuntu(Wazuh) droplet, and launch the console.
 <p align="center">
@@ -275,7 +275,7 @@ Setup another Ubuntu instance, add the Firewall as was done with the Ubuntu(Wazu
 <p align="left">
 From the console use nano to edit the cassandra.yaml file.
   
- ## $${\color{red}Command:}$$
+ ## $${Command:}$$
     nano /etc/cassandra/cassandra.yaml  
 <p align="center">
 <img src="https://imgur.com/43iJA6R.png" height="80%" width="80%" alt="Project walk-through"/>
@@ -299,7 +299,7 @@ Edit the following...and save the file.
 <p align="left">
 Stop the service for cassandra, remove files from /var/lic/cassandra/*, start cassandra.service, and check the status for active to know it is running.
   
- ## $${\color{red}Command:}$$
+ ## $${Command:}$$
     systemctl stop cassandra.service
     rm -rf /var/lic/cassandra/*
     systemctl start cassandra.service
@@ -311,7 +311,7 @@ Stop the service for cassandra, remove files from /var/lic/cassandra/*, start ca
 <p align="left">
 Edit the following in the file for elasticsearch using nano.
   
- ## $${\color{red}Command:}$$
+ ## $${Command:}$$
     nano /etc/elasticsearch/elasticsearch.yml
 <p align="center">
 <img src="https://imgur.com/R4pUu4y.png" height="80%" width="80%" alt="Project walk-through"/>
@@ -329,7 +329,7 @@ Edit the following in the file for elasticsearch using nano.
 <p align="left">
 Run the following commands to start, enable and check the status of elasticsearch.
   
- ## $${\color{red}Command:}$$
+ ## $${Command:}$$
     systemctl start elasticsearch
     systemctl enable elasticsearch
     systemctl status elasticsearch
@@ -340,7 +340,7 @@ Run the following commands to start, enable and check the status of elasticsearc
 <p align="left">
 Run the following commands to check the ownership of /opt/thp files, and change owner to thehive.
   
- ## $${\color{red}Command:}$$
+ ## $${Command:}$$
     ls -la /opt/thp
     chown -R thehive:thehive /opt/thp
 <p align="center">
@@ -349,7 +349,7 @@ Run the following commands to check the ownership of /opt/thp files, and change 
 <br />
 Run the following commands to edit the application/conf file for thehive and configure as shown.
   
- ## $${\color{red}Command:}$$
+ ## $${Command:}$$
     nano /etc/thehive/application.conf
 <p align="center">
 <img src="https://i.postimg.cc/4ywkGwhL/25.png" height="80%" width="80%" alt="Project walk-through"/>  
@@ -367,7 +367,7 @@ Run the following commands to edit the application/conf file for thehive and con
 <p align="left">
 Run the following commands to start, enable, and check status of thehive.
   
- ## $${\color{red}Command:}$$
+ ## $${Command:}$$
     systemctl start thehive
     systemctl enable thehive
     systemctl status thehive
@@ -378,7 +378,7 @@ Run the following commands to start, enable, and check status of thehive.
 <p align="left">
 Open a new browser and paste the IP address of thehive(Ubuntu) at port 9000. The default username and password are:
   
- ## $${\color{red}Usernames \space and \space Passwords:}$$
+ ## $${Usernames and Passwords:}$$
     admin@thehive.local
     secret 
 <p align="center">
@@ -388,11 +388,11 @@ Open a new browser and paste the IP address of thehive(Ubuntu) at port 9000. The
 <img src="https://i.postimg.cc/j5MY0Zf8/31.png" height="80%" width="80%" alt="Project walk-through"/>
   <br />
   <br />
-<h3>$${\color{blue}Deploying \space a \space Wazuh \space agent \space from \space Windows \space client:}$$</h3>
+<h3>$${Deploying a Wazuh agent from Windows client:}$$</h3>
 <p align="left">
 To find out what all the username and passwords are run the following commands:
   
- ## $${\color{red}Command:}$$
+ ## $${Command:}$$
     ls
     tar -xvf wazuh-install-files.tar
     cd wazuh-install-files/
@@ -443,12 +443,12 @@ Check 'Services' in Windows and the Wazuh dashboard to see Wazuh running and age
   <br />
   <br /> 
 <p align="left">
-<h3>$${\color{blue}Setting \space up \space Windows \space client \space telementary:}$$</h3>  
+<h3>$${Setting up Windows client telementary:}$$</h3>  
 Locate in Windows 10 client the ossec.conf file and copy it into the same directory making it a backup.
 <p align="left">
 
   
-## $${\color{red}File \space path:}$$
+## $${File path:}$$
     C:\Program Files (x86)\ossec-agent
 <p align="center">
 <img src="https://imgur.com/xmYm8CL.png" height="80%" width="80%" alt="Project walk-through"/>
@@ -503,7 +503,7 @@ Open the Windows Services and restart Wazuh.
   <br />
   <br /> 
 <p align="left">  
-<h3>$${\color{blue}Setup \space ossec.conf \space and \space Filebeat \space in \space Wazuh:}$$</h3>
+<h3>$${Setup ossec.conf and Filebeat in Wazuh:}$$</h3>
 Open Wazuh(Ubuntu) console and run the following commands to copy the ossec.conf as a backup. Run the following command to open a nano text editor to configure the ossec.conf file.
   
 ## $${\color{red}Command:}$$
@@ -522,7 +522,7 @@ Modify the ossec.conf file as shown...and save.
 <p align="left">
 Change directories and open filebeat.yml with nano.
 
-## $${\color{red}Command:}$$
+## $${Command:}$$
     cd /var/ossec/logs/archives/
     nano /etc/filebeat/filebeat.yml  
 <p align="center"> 
@@ -538,17 +538,17 @@ Modify the filebeat.yml file as shown...and save.
 <p align="left">
 Restart filebeat.
 
-## $${\color{red}Command:}$$
+## $${Command:}$$
     systemctl restart filebeat 
 <p align="center"> 
 <img src="https://imgur.com/kL5aaoZ.png" height="80%" width="80%" alt="Project walk-through"/>  
   <br />
   <br />
 <p align="left">  
-<h3>$${\color{blue}Install \space and \space Setup \space Mimikatz \space in \space Windows \space client}$$</h3>
+<h3>$${Install and Setup Mimikatz in Windows client}$$</h3>
 Open a browser in the Windows client machine and go to the Mimikatz github page. Download the mimikatz_trunk.zip file.
 
-## $${\color{red}Link:}$$
+## $${Link:}$$
     https://github.com/gentilkiwi/mimikatz/releases/tag/2.2.0-20220919
 <p align="center"> 
 <img src="https://imgur.com/0FVq0KZ.png" height="80%" width="80%" alt="Project walk-through"/>  
@@ -575,14 +575,14 @@ Open PowerShell, run as administrator, and change directories to \Downloads\mimi
 <p align="left">  
 Use the following command to run Mimikatz...
 
-## $${\color{red}Command:}$$
+## $${Command:}$$
     .\mimikatz.exe
 <p align="center"> 
 <img src="https://imgur.com/o4vRCNd.png" height="80%" width="80%" alt="Project walk-through"/>  
   <br />
   <br />
 <p align="left">  
-<h3>$${\color{blue}Setup \space an \space Index \space pattern \space on \space Wazuh \space dashboard \space to \space capture \space Mimikats \space on \space   Windows \space client:}$$</h3>
+<h3>$${Setup an Index pattern on Wazuh dashboard to capture Mimikats on Windows client:}$$</h3>
 Open Wazuh dashboard, select 'Dashboard Management', select 'Index patterns', and select 'Create index pattern'.
   <br />
   <br />
@@ -627,7 +627,7 @@ Inside the 'Document Details' there is important information about the new alert
   <br />
   <br />
 <p align="left"> 
-<h3>$${\color{blue}Wazuh \space rules \space creation:}$$</h3>
+<h3>$${Wazuh rules creation:}$$</h3>
 In Wazuh go to Management-Rules and click 'Manage rules files'.
   <br />
   <br />
@@ -699,7 +699,7 @@ View the Document Details for the new timestamp. The timestamp alerted of mimika
   <br />
   <br />
 <p align="left"> 
-<h3>$${\color{blue}Setup \space Shuffle:}$$</h3>
+<h3>$${Setup Shuffle:}$$</h3>
 Open Shuffler.io on a new browser and create a new account. Click 'Workflows'.
   <br />
   <br />
@@ -740,7 +740,7 @@ Click 'Change Me'. Find actions is Repeat back to me. Call is $exec.
 <p align="left"> 
 In the Wazuh console open the /var/ossec/etc/ossec.conf file with nano.
 
- ## $${\color{red}Command:}$$
+ ## $${Command:}$$
     nano /var/ossec/etc/ossec.conf 
 <p align="center"> 
 <img src="https://imgur.com/cRcADOJ.png" height="80%" width="80%" alt="Project walk-through"/> 
@@ -749,7 +749,7 @@ In the Wazuh console open the /var/ossec/etc/ossec.conf file with nano.
 <p align="left"> 
 Inside of the ossec.conf file paste the integration tag with the Webhook URI. Save the file.
 
- ## $${\color{red}Integration tag:}$$
+ ## $${Integration tag:}$$
     <integration>
       <name>shuffle</name>
       <hook_url>https://shuffler.io/api/v1/hooks/webhook_ec487b29-d323-4b95-a5d2-e229cb7b12d2 </hook_url>
@@ -763,7 +763,7 @@ Inside of the ossec.conf file paste the integration tag with the Webhook URI. Sa
 <p align="left"> 
 Restart wazuh-manager.service. Check the status.
 
- ## $${\color{red}Command:}$$
+ ## $${Command:}$$
     sysytemctl restart wazuh-manager.service 
     sysytemctl status wazuh-manager.service
 <p align="center"> 
@@ -875,7 +875,7 @@ Refresh the Details, open the status for Virustotal, and Status is a success.
   <br />
   <br />
 <p align="left"> 
-<h3>$${\color{blue}TheHive \space will \space be \space added \space to \space the \space flow \space so \space the \space alert \space will \space be \space sent \space there \space for \space case \space management:}$$</h3>
+<h3>$${TheHive will be added to the flow so the alert will be sent there for case management:}$$</h3>
 Open TheHive on a new browser by using thehive(Ubuntu) IP address followed by port 9000. Login using the admin default credentials. Add an Organization by clicking the plus symbol.
   <br />
   <br />
@@ -961,7 +961,7 @@ Click on the alert to view all the information.
 <img src="https://imgur.com/rT4TfcK.png" height="80%" width="80%" alt="Project walk-through"/> 
   <br />
   <br />
-<h3>$${\color{blue}Adding \space email \space to \space the \space Workflow \space so \space the \space SOC \space will \space receive \space the \space alert:}$$</h3>
+<h3>$${Adding email to the Workflow so the SOC will receive the alert:}$$</h3>
 In the Workflow search for email in the Apps, activate it to the workflow, drag, and drop it onto the Workflow board.
   <br />
   <br />
@@ -988,7 +988,7 @@ The results were Status Success.
   <br />
   <br />
 <p align="left"> 
-The email was received by the SOC Team.
++The email was received by the SOC Team.
 <p align="center"> 
 <img src="https://imgur.com/T6PqZ0n.png" height="80%" width="80%" alt="Project walk-through"/> 
   <br />
