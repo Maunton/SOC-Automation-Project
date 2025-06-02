@@ -142,7 +142,7 @@ Open up PowerShell and run as Administrator.
 Change Directories into the Downloads/Sysmon folder.<br />
 Run the command to install Sysmon64.
 
-  ## $${\color{red}Command:}$$
+  ## $${Command:}$$
       .\Sysmon64.exe -i .\sysmonconfig.xml
 <p align="center">
 <img src="https://imgur.com/MTBXSDa.png" height="80%" width="80%" alt="Project walk-through"/>
