@@ -1,1019 +1,197 @@
-<h1 align="center" style="color: yellow;">SOC Automation Project</h1>
+# SOC Automation Project
 
+![SOC](https://img.shields.io/badge/SOC-Automation-blue)
+![SIEM](https://img.shields.io/badge/SIEM-Wazuh-orange)
+![SOAR](https://img.shields.io/badge/SOAR-Shuffle-purple)
+![Case Management](https://img.shields.io/badge/Case_Management-TheHive-yellow)
+![Threat Intel](https://img.shields.io/badge/Threat_Intel-VirusTotal-green)
+![Endpoint](https://img.shields.io/badge/Endpoint-Windows_10-lightgrey)
 
-<h2 style="color: #4f87f0;">Description:</h2>
-The "SOC Automation Project by Maunton Cyber" is a comprehensive home lab series designed to take viewers from the ground up in creating a fully functional Security Operations Center (SOC) process. The project focuses on integrating tools, establishing effective case management with The Hive, and managing events using Wazuh. Through this project I have gained practical, hands-on experience in building, configuring, and troubleshooting SOC components, ultimately enhancing my cybersecurity operations skills.
-<br>
-<br>
-<h2 style="color: #4f87f0;">Key Learnings:</h2>
-- Diagramming and Logical Planning: Creating a network diagram is a critical step in understanding the architecture of a SOC. This visual representation helps in mapping out data flow and understanding the components involved in the lab setup.
-<br>
-<br>
-- Workflow Understanding: The step-by-step process of sending events, triggering alerts, and performing actions is crucial in security operations. Each component in the workflow has a specific role, from sending events to enriching Indicators of Compromise (IOCs).
-<br>
-<br>
-<h2 style="color: #4f87f0;">Challenges Faced:</h2>
-- Error Management: Anticipating errors during the lab exercises is a part of the learning process. Errors can arise from incorrect configurations, misunderstanding of the tools, or logical errors in the setup.
-<br>
-<br>
-- Complexity in Data Flow: Understanding how data flows between different components like Wazuh Manager, Shuffle, and The Hive can be complex. Ensuring the correct logical flow is a challenge that needs careful attention.
-<br>
-<br />
+## Overview
 
+This project demonstrates a complete SOC automation workflow using Wazuh, Shuffle, TheHive, VirusTotal, Sysmon, and a Windows 10 endpoint. The goal was to build a hands-on security operations lab that collects endpoint telemetry, detects suspicious activity, enriches alerts with threat intelligence, creates cases for investigation, and notifies analysts through email.
 
-<h2 style="color: #4f87f0;">Project Stack:</h2>
+The lab simulates how a modern SOC can reduce manual alert handling by combining SIEM detection, SOAR automation, case management, and analyst notification workflows.
 
-- <b>Wazuh:<br>
--Role: Wazuh serves as the primary Security Information and Event Management (SIEM) tool in the stack. It collects, aggregates, and analyzes security events from various endpoints.<br>
--Functionality: Wazuh agents are installed on endpoints (e.g., Windows 10 client) to monitor and send security event data to the Wazuh Manager. The manager then processes these events, triggers alerts based on predefined rules, and sends them to other components in the stack for further action..</b>
-- <b>Shuffle:<br>
-  -Role: Shuffle is an open-source Security Orchestration, Automation, and Response (SOAR) platform that automates workflows within the SOC.<br>
-  -Functionality: Upon receiving alerts from Wazuh, Shuffle can trigger automated actions such as enriching Indicators of Compromise (IOCs) by gathering additional data from open-source intelligence (OSINT) sources. Shuffle also forwards alerts to The Hive for case management and can send notifications to SOC analysts via email.</b>
-- <b>The Hive:<br>
-  -Role: The Hive is a case management system designed for SOCs. It allows for the organization, investigation, and resolution of security incidents.<br>
-  -Functionality: Once Shuffle sends alerts to The Hive, they are logged as cases. SOC analysts can then investigate these cases, track the incident response process, and document their findings. The Hive integrates seamlessly with other tools in the stack to streamline the incident management workflow.</b>
-- <b>Windows 10 Client:<br>
-  -Role: This is the endpoint where the Wazuh agent is installed, representing a typical workstation in a network.<br>
-  -Functionality: The Windows 10 client generates security events that are monitored by Wazuh. These events could include login attempts, application usage, or network traffic. The client is a critical source of data for the SOC.</b>
-- <b>Internet/Cloud Services:<br>
-  -Role: Provides the infrastructure where Wazuh Manager, The Hive, and Shuffle are hosted.<br>
-  -Functionality: These services are hosted in the cloud, allowing for scalability and accessibility. The cloud setup ensures that the SOC components can interact with each other regardless of the physical location, enabling a robust and distributed SOC environment.</b>
+---
 
-<h1 align="center" style="color: #f0db4f;">Project Walk-Through</h1>
-  
-<br />
+## Project Objectives
 
-<h2 style="color: #4f87f0;">SOC Automation Workflow Design:</h2>
-This flowchart shows how security events are managed within an organization, covering everything from event collection and analysis to alerting, enrichment, and communication.<br>
-<br>1. Windows 10 Client - Wazuh Agent (Send Events): This is an agent installed on a Windows 10 machine. It gathers security-related data like log entries, network activity, or system changes and sends this information to the Wazuh Manager.<br>
-<br>2. Wazuh Manager (Receive Events): The Wazuh Manager acts as the central hub that receives and processes events from the agent. It aggregates, normalizes, and analyzes these events.<br>
-<br>3. Send Alerts: The Wazuh Manager detects potential security threats by analyzing the events. If it finds any suspicious behavior, it generates alerts and sends them to Shuffle.<br>
-<br>4. Enrich IOCs: "IOCs" stand for "Indicators of Compromise." In Shuffle, these IOCs are enriched by correlating the incoming data with information from threat intelligence platforms like VirusTotal.<br>
-<br>5. Send Alert: After enrichment, the refined alerts are sent to TheHive for deeper investigation, collaboration, and case management.<br>
-<br>6. Send Email: Simultaneously, alerts can be emailed to administrators, analysts, or other relevant parties to ensure they are aware of the security incidents in real-time.<br>
-<br>7. SOC Analyst: The SOC Analyst, receives alerts from both TheHive and email. Their job is to analyze the incidents, respond to threats, and take the necessary actions.
-<br />
-<br />
-<p align="center">
-<img src="https://imgur.com/ClWhmJW.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br />
-<h3>$${Setting up Windows 10 ISO on a virtual machine and installing Sysmon in the Windows VM:}$$</h3>
-In your browser, go to the download for Windows 10 and click the 'Download Now' for Create Windows installation media.
-<br />
-<br /> 
-<p align="center">
-<img src="https://imgur.com/dUpJovl.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br />  
-<p align="left">  
-In the downloads folder, double click the Media Creation Tool that was just downloaded.
-<br />
-<p align="center">  
-<img src="https://imgur.com/CblFwvN.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br />  
-<p align="left">
-Choose Create Installation Media and click Next.
-<br />
-<p align="center">
-<img src="https://imgur.com/1JNgSkN.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />  
-<br />
-<p align="left">
-Choose ISO File and click next.
-<p align="center">
-<img src="https://imgur.com/RlWADPA.png" height="80%" width="80%" alt="Project walk-through"/>
-<br /> 
-<br />  
-<p align="left">
-In VirtualBox create a new Windows 10 machine from the ISO created. 
-<br /> 
-<p align="center">
-<img src="https://imgur.com/jX7OwFe.png" height="80%" width="80%" alt="Project walk-through"/> 
-<br />
-<br />   
-<p align="left">
-  From a browser, download Sysmon from the Microsoft Sysmon Downloads.
-<br /> 
-<p align="center">
-<img src="https://imgur.com/s0HeWDI.png" height="80%" width="80%" alt="Project walk-through"/>
-<br /> 
-<br />  
-<p align="left">
-Go to the Sysmon Config files from the Github repository(github.com/olafhartong/sysmon-modular) and choose 'sysmonconfig.xml'.
-<br /> 
-<p align="center">
-<img src="https://imgur.com/2dR8zvD.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br />   
-<p align="left">
-Click 'Raw'.
-<br />
-<p align="center">
-<img src="https://imgur.com/blOcNwg.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br />   
-<p align="left">
-Copy the text.
-<p align="center">
-<img src="https://imgur.com/ipslJyH.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br />   
-<p align="left">
-In the Downloads folder, 'extract all' from the Sysmon folder.
-<p align="center">
-<img src="https://imgur.com/XXoosdw.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br />   
-<p align="left">
-Open the Sysmon file and place the Sysmon config file in there. 
-<p align="center">
-<img src="https://imgur.com/F7LDFY8.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br /> 
-<p align="left">
-Open up PowerShell and run as Administrator. 
-<p align="center">
-<img src="https://imgur.com/tzC090V.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br />
-<p align="left">
-Change Directories into the Downloads/Sysmon folder.<br />
-Run the command to install Sysmon64.
+- Build a functional SOC automation lab from the ground up
+- Collect Windows endpoint telemetry using Sysmon and the Wazuh agent
+- Detect suspicious activity related to credential dumping behavior
+- Create a custom Wazuh detection rule
+- Forward alerts from Wazuh into Shuffle using a webhook integration
+- Extract and enrich file hash indicators with VirusTotal
+- Create alerts in TheHive for case management
+- Send email notifications to simulate SOC analyst alerting
+- Document the full workflow in a professional, repeatable format
 
-  ## $${Command:}$$
-      .\Sysmon64.exe -i .\sysmonconfig.xml
-<p align="center">
-<img src="https://imgur.com/MTBXSDa.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br />
-<h3>$${Setting up an instance(Droplet) in the cloud for Wazuh:}$$</h3>
-<br />
-<p align="left">
-Create an Ubuntu machine on the cloud for the Wazuh instance. I chose Digital Ocean where each intance is called a 'Droplet'.
-<p align="center">
-<img src="https://imgur.com/It6GY6l.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br /> 
-<p align="left">
-Create a firewall on the 'Network' tab.
-<p align="center">
-<img src="https://imgur.com/ggYf1dk.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br />
-<p align="left">
-Create two Inbound rules using your home routers Public IP address. 
-<p align="center">
-<img src="https://imgur.com/nOvxMiJ.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br /> 
-<p align="left">
-Create the three Outbound rules and click 'Create Firewall'.
-<p align="center">
-<img src="https://imgur.com/kWExugW.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br /> 
-<p align="left">
-To add the Firewall to the droplet navigate back to 'Droplets' and select the newly created one.
-<p align="center">
-<img src="https://imgur.com/OHPvQ0L.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br />
-<p align="left">
-Select the 'Networks" tab.
-<p align="center">
-<img src="https://imgur.com/og1FTMB.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br />
-<p align="left">
-Scroll down and select the Firewalls 'Edit' tab.
-<p align="center">
-<img src="https://imgur.com/fM3vsJr.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br /> 
-<p align="left">
-Select the newly created Firewall.
-<p align="center">
-<img src="https://imgur.com/53DoDe7.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br />   
-<p align="left">
-Select the Droplets tab and click 'Add Droplets'.
-<p align="center">
-<img src="https://imgur.com/lhp1Htg.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br />
-<p align="left">
-Select the Droplet and click 'Add Droplet'.
-<p align="center">
-<img src="https://imgur.com/kguHBSj.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br />
-<p align="left">
-To start your Ubuntu(Wazuh) instance, select the 'Launch Droplet Console'.
-<p align="center">
-<img src="https://imgur.com/uc4ZDx9.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br />
-<p align="left">
-In the console, run the commands to update and upgrade Ubuntu.
+---
 
-  ## $${Command:}$$
-    apt-get update && apt-get upgrade -y 
-<p align="center">
-<img src="https://imgur.com/Yivu48w.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br />
-<h3>$${Wazuh install on the Ubuntu machine:}$$</h3>
-In the console, run the commands to install Wazuh.
+## Tools and Technologies
 
-  ## $${Command:}$$
-    curl -sO https://packages.wazuh.com/4.8/wazuh-install.sh && sudo bash ./wazuh-install.sh -a
-<p align="center">
-<img src="https://imgur.com/IHhoYBN.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br />
-<p align="left">
-Save the user name and password provided after the install in order for access to Wazuh .
-<p align="center">
-<img src="https://imgur.com/xHoyYnw.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br /> 
-<p align="left">
-Copy the IP address of the Wazuh(Ubuntu) droplet for access to Wazuh.
-<p align="center">
-<img src="https://imgur.com/tYVIorw.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br />
-<p align="left">
-Open a new browser tab and paste the IP address of the Wazuh(Ubuntu) droplet.<br>
-The browser may restrict access so use proceed option.
-<p align="center">
-<img src="https://imgur.com/mWTOsXW.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br />  
-<p align="left">
-Enter the credentials that were provided after the install of Wazuh.
-<p align="center">
-<img src="https://imgur.com/fZGXLlw.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br />
-<p align="left">
-After login you will be presented with the Wazuh dashboard.
-<p align="center">
-<img src="https://imgur.com/IyPwyrR.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br /> 
-<h3>$${Setting up TheHive on an Ubuntu machine from the cloud(DigitalOcean):}$$</h3>
-<p align="left">
-Setup another Ubuntu instance, add the Firewall as was done with the Ubuntu(Wazuh) droplet, and launch the console.
-<p align="center">
-<img src="https://imgur.com/6zVfOfY.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br /> 
-<p align="left">
-From the console use nano to edit the cassandra.yaml file.
-  
- ## $${Command:}$$
-    nano /etc/cassandra/cassandra.yaml  
-<p align="center">
-<img src="https://imgur.com/43iJA6R.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br />
-<p align="left">
-Edit the following...and save the file.
-<p align="center">
-<img src="https://imgur.com/PQC6uIl.png" height="80%" width="80%" alt="Project walk-through"/>
-  <br />
-  <br />
-<img src="https://imgur.com/F3oyKlw.png" height="80%" width="80%" alt="Project walk-through"/>
-  <br />
-  <br />
-<img src="https://imgur.com/plwJolm.png" height="80%" width="80%" alt="Project walk-through"/>
-  <br />
-  <br />
-<img src="https://imgur.com/q176CQM.png" height="80%" width="80%" alt="Project walk-through"/>  
-<br />
-<br />
-<p align="left">
-Stop the service for cassandra, remove files from /var/lic/cassandra/*, start cassandra.service, and check the status for active to know it is running.
-  
- ## $${Command:}$$
-    systemctl stop cassandra.service
-    rm -rf /var/lic/cassandra/*
-    systemctl start cassandra.service
-    systemctl status cassandra.service
-<p align="center">
-<img src="https://imgur.com/JZAuWMr.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br />   
-<p align="left">
-Edit the following in the file for elasticsearch using nano.
-  
- ## $${Command:}$$
-    nano /etc/elasticsearch/elasticsearch.yml
-<p align="center">
-<img src="https://imgur.com/R4pUu4y.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br />
-<img src="https://imgur.com/MVRob6R.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br />
-<img src="https://imgur.com/I2qjauS.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br />
-<img src="https://imgur.com/do2ablD.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br /> 
-<p align="left">
-Run the following commands to start, enable and check the status of elasticsearch.
-  
- ## $${Command:}$$
-    systemctl start elasticsearch
-    systemctl enable elasticsearch
-    systemctl status elasticsearch
-<p align="center">
-<img src="https://i.postimg.cc/8Cfy4wk8/23.png" height="80%" width="80%" alt="Project walk-through"/>  
-<br />
-<br />
-<p align="left">
-Run the following commands to check the ownership of /opt/thp files, and change owner to thehive.
-  
- ## $${Command:}$$
-    ls -la /opt/thp
-    chown -R thehive:thehive /opt/thp
-<p align="center">
-<img src="https://i.postimg.cc/7hrYhBhq/24.png" height="80%" width="80%" alt="Project walk-through"/>  
-<br />
-<br />
-Run the following commands to edit the application/conf file for thehive and configure as shown.
-  
- ## $${Command:}$$
-    nano /etc/thehive/application.conf
-<p align="center">
-<img src="https://i.postimg.cc/4ywkGwhL/25.png" height="80%" width="80%" alt="Project walk-through"/>  
-<br />
-<br />
-<img src="https://i.postimg.cc/nz00cW0D/26.png" height="80%" width="80%" alt="Project walk-through"/>  
-<br />
-<br />
-<img src="https://i.postimg.cc/QMDbgDz7/27.png" height="80%" width="80%" alt="Project walk-through"/>  
-<br />
-<br />
-<img src="https://i.postimg.cc/SRHLnb8J/28.png" height="80%" width="80%" alt="Project walk-through"/>  
-<br />
-<br />
-<p align="left">
-Run the following commands to start, enable, and check status of thehive.
-  
- ## $${Command:}$$
-    systemctl start thehive
-    systemctl enable thehive
-    systemctl status thehive
-<p align="center">
-<img src="https://i.postimg.cc/d11GnVjh/29.png" height="80%" width="80%" alt="Project walk-through"/>  
-<br />
-<br />
-<p align="left">
-Open a new browser and paste the IP address of thehive(Ubuntu) at port 9000. The default username and password are:
-  
- ## $${Usernames and Passwords:}$$
-    admin@thehive.local
-    secret 
-<p align="center">
-<img src="https://i.postimg.cc/3x08j5G3/30.png" height="80%" width="80%" alt="Project walk-through"/>
-  <br />
-  <br />
-<img src="https://i.postimg.cc/j5MY0Zf8/31.png" height="80%" width="80%" alt="Project walk-through"/>
-  <br />
-  <br />
-<h3>$${Deploying a Wazuh agent from Windows client:}$$</h3>
-<p align="left">
-To find out what all the username and passwords are run the following commands:
-  
- ## $${Command:}$$
-    ls
-    tar -xvf wazuh-install-files.tar
-    cd wazuh-install-files/
-    ls
-    cat wazuh-passwords.txt
-    
-<p align="center">
-<img src="https://i.postimg.cc/dVJM1b9W/1.png" height="80%" width="80%" alt="Project walk-through"/>
-  <br />
-  <br />
-<p align="left">
-On the Wazuh dashboard click the 'Add agent'.
-<p align="center">
-<img src="https://i.postimg.cc/ZKFg1fh6/3.png" height="80%" width="80%" alt="Project walk-through"/>
-  <br />
-  <br />
-<p align="left">
-Choose the Windows version for the Windows 10 VM Client.
-<p align="center">
-<img src="https://i.postimg.cc/VN1NzZS1/4.png" height="80%" width="80%" alt="Project walk-through"/>
-  <br />
-  <br />
-<p align="left">
-The assigned server address will be the IP of the Wazuh(Ubuntu). Create an assigned agent name.
-<p align="center">
-<img src="https://i.postimg.cc/vm3GbYFL/5.png" height="80%" width="80%" alt="Project walk-through"/>
-  <br />
-  <br />
-<p align="left">
-Copy these commands and run them in Windows 10 PowerShell.
-<p align="center">
-<img src="https://i.postimg.cc/wvnMYqL4/6.png" height="80%" width="80%" alt="Project walk-through"/>
-  <br />
-  <br />
-<img src="https://i.postimg.cc/65r3FN3z/7.png" height="80%" width="80%" alt="Project walk-through"/>
-  <br />
-  <br />
-<img src="https://i.postimg.cc/1zt3gnKY/9.png" height="80%" width="80%" alt="Project walk-through"/>
-  <br />
-  <br /> 
-<p align="left">
-Check 'Services' in Windows and the Wazuh dashboard to see Wazuh running and agent successfully added.
-<p align="center">
-<img src="https://i.postimg.cc/WzSyJ38X/10.png" height="80%" width="80%" alt="Project walk-through"/>
-  <br />
-  <br /> 
-<img src="https://i.postimg.cc/QxxwZQNP/11.png" height="80%" width="80%" alt="Project walk-through"/>
-  <br />
-  <br /> 
-<p align="left">
-<h3>$${Setting up Windows client telementary:}$$</h3>  
-Locate in Windows 10 client the ossec.conf file and copy it into the same directory making it a backup.
-<p align="left">
+| Tool | Purpose |
+|---|---|
+| Wazuh | SIEM and endpoint security monitoring |
+| Sysmon | Windows telemetry and process event logging |
+| Shuffle | SOAR workflow automation |
+| TheHive | Case management and alert tracking |
+| VirusTotal | Threat intelligence enrichment |
+| Windows 10 VM | Monitored endpoint |
+| Ubuntu / DigitalOcean | Cloud-hosted security tools |
+| PowerShell | Endpoint commands and agent deployment |
+| Filebeat | Log forwarding and archive indexing |
 
-  
-## $${File path:}$$
-    C:\Program Files (x86)\ossec-agent
-<p align="center">
-<img src="https://imgur.com/xmYm8CL.png" height="80%" width="80%" alt="Project walk-through"/>
-  <br />
-  <br />   
-<p align="left">
-Open the ossec.conf file with Notepad and run as administrator.
-<p align="center">
-<img src="https://imgur.com/11bavc3.png" height="80%" width="80%" alt="Project walk-through"/>
-  <br />
-  <br /> 
-<p align="left">
-In Windows 10 open the Event Viewer. Click Applications and Services Logs in the drop down.
-<p align="center">
-<img src="https://imgur.com/Y6MkGqu.png" height="80%" width="80%" alt="Project walk-through"/>
-  <br />
-  <br />
-<p align="left">
-Click the Sysmon directory.
-<p align="center">  
-<img src="https://imgur.com/BfhYFqv.png" height="80%" width="80%" alt="Project walk-through"/>
-  <br />
-  <br />
-<p align="left">
-Right click Operational and click Properties.
-<p align="center">   
-<img src="https://imgur.com/PlCOqkj.png" height="80%" width="80%" alt="Project walk-through"/>
-  <br />
-  <br />
-<p align="left">
-Copy the Full Name- 'Microsoft-Windows-Sysmon/Operational'.
-<p align="center"> 
-<img src="https://imgur.com/4e966WC.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br /> 
-<p align="left">
-Paste 'Microsoft-Windows-Sysmon/Operational' into the ossec.conf file and replacing application at location.
-<p align="center"> 
-<img src="https://imgur.com/wcFD0GE.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br /> 
-<p align="left">
-Modify the ossec.conf file as shown...and save.
-<p align="center"> 
-<img src="https://imgur.com/7aUR92P.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left">
-Open the Windows Services and restart Wazuh.
-<p align="center"> 
-<img src="https://imgur.com/dWJqqIa.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br /> 
-<p align="left">  
-<h3>$${Setup ossec.conf and Filebeat in Wazuh:}$$</h3>
-Open Wazuh(Ubuntu) console and run the following commands to copy the ossec.conf as a backup. Run the following command to open a nano text editor to configure the ossec.conf file.
-  
-## $${Command:}$$
-    cp /var/ossec/etc/ossec.conf ~/ossec-backup.conf
-    nano /var/ossec/etc/ossec.conf
-<p align="center"> 
-<img src="https://imgur.com/ziVL4Kp.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />   
-<p align="left">
-Modify the ossec.conf file as shown...and save.
-<p align="center"> 
-<img src="https://imgur.com/bR49jRZ.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left">
-Change directories and open filebeat.yml with nano.
+---
 
-## $${Command:}$$
-    cd /var/ossec/logs/archives/
-    nano /etc/filebeat/filebeat.yml  
-<p align="center"> 
-<img src="https://imgur.com/4kQF1q7.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left">
-Modify the filebeat.yml file as shown...and save.
-<p align="center"> 
-<img src="https://imgur.com/TD8pgOB.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br /> 
-<p align="left">
-Restart filebeat.
+## Lab Architecture
 
-## $${Command:}$$
-    systemctl restart filebeat 
-<p align="center"> 
-<img src="https://imgur.com/kL5aaoZ.png" height="80%" width="80%" alt="Project walk-through"/>  
-  <br />
-  <br />
-<p align="left">  
-<h3>$${Install and Setup Mimikatz in Windows client}$$</h3>
-Open a browser in the Windows client machine and go to the Mimikatz github page. Download the mimikatz_trunk.zip file.
+The workflow follows this path:
 
-## $${Link:}$$
-    https://github.com/gentilkiwi/mimikatz/releases/tag/2.2.0-20220919
-<p align="center"> 
-<img src="https://imgur.com/0FVq0KZ.png" height="80%" width="80%" alt="Project walk-through"/>  
-  <br />
-  <br />
-<p align="left">
-In the downloads folder, extract the contents of the Mimikatz_trunk file.
-<p align="center"> 
-<img src="https://imgur.com/iacgmwu.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br /> 
-<p align="left">
-Copy the file path for Mimikatz x64 version.
-<p align="center"> 
-<img src="https://imgur.com/LR6fIrD.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left">
-Open PowerShell, run as administrator, and change directories to \Downloads\mimikatz_trunk\x64.
-<p align="center"> 
-<img src="https://imgur.com/iGPOq7U.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left">  
-Use the following command to run Mimikatz...
+1. Windows 10 endpoint generates telemetry with Sysmon.
+2. Wazuh agent forwards endpoint events to the Wazuh manager.
+3. Wazuh detects suspicious activity using custom rules.
+4. Wazuh sends alerts to Shuffle through a webhook.
+5. Shuffle extracts the SHA256 hash from the alert.
+6. VirusTotal enriches the hash with threat intelligence.
+7. Shuffle creates an alert in TheHive.
+8. Email notification is sent to the SOC team.
 
-## $${Command:}$$
-    .\mimikatz.exe
-<p align="center"> 
-<img src="https://imgur.com/o4vRCNd.png" height="80%" width="80%" alt="Project walk-through"/>  
-  <br />
-  <br />
-<p align="left">  
-<h3>$${Setup an Index pattern on Wazuh dashboard to capture Mimikats on Windows client:}$$</h3>
-Open Wazuh dashboard, select 'Dashboard Management', select 'Index patterns', and select 'Create index pattern'.
-  <br />
-  <br />
-<p align="center"> 
-<img src="https://imgur.com/83vHJj7.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left">
-Name the Index pattern as 'wazuh-archives-**' and click 'next step'.
-<p align="center"> 
-<img src="https://imgur.com/e2wpcvq.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left">
-Select 'timestamp' and click 'Create index pattern'.
-<p align="center"> 
-<img src="https://imgur.com/Btf58RW.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left">
-On the Windows PowerShell run Mimikatz again.
-<p align="center"> 
-<img src="https://imgur.com/DEjTPQR.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left">
-On the Wazuh dashboard go to 'Discover' to view new alerts.
-<p align="center"> 
-<img src="https://imgur.com/NhhEvKg.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left">
-Select wazuh-archives-**, mimikatz, refresh, and select the first Timestamp.
-<p align="center"> 
-<img src="https://imgur.com/P46XxlA.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left">
-Inside the 'Document Details' there is important information about the new alert from the Windows client regarding mimikatz.
-<p align="center"> 
-<img src="https://imgur.com/jZKJOGa.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-<h3>$${Wazuh rules creation:}$$</h3>
-In Wazuh go to Management-Rules and click 'Manage rules files'.
-  <br />
-  <br />
-<p align="center"> 
-<img src="https://imgur.com/weF15SY.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />  
-<p align="left">
-Type 'sysmon' to find a similar rule with an id_1 and then select the sysmon rule with id_1.
-<p align="center"> 
-<img src="https://imgur.com/9ZDuv3t.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left">
-Copy one of these rules to build out a custom rule for mimikatz.
-<p align="center"> 
-<img src="https://imgur.com/gBjYs9g.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left">
-Go back to rules and click 'Custom rules'.
-<p align="center"> 
-<img src="https://imgur.com/iDu8Lb3.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left">
-Click the pencil icon to edit the new custom rule.
-<p align="center"> 
-<img src="https://imgur.com/izjXdL6.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left">
-Go down to the last rule and this is where we will paste our rule we copied.
-<p align="center"> 
-<img src="https://imgur.com/ylkheXk.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left">
-Modify the rule: change the rule id, change the field name, description, mitre id, and click 'Save'.
-<p align="center"> 
-<img src="https://imgur.com/4sMLK3j.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left">
-Click 'Restart'.
-<p align="center"> 
-<img src="https://imgur.com/2a2xz5w.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left">
-Now that we made a rule to be alerted from mimikatz usage, we will change the executable name to something else.
-<p align="center"> 
-<img src="https://imgur.com/vxILVF4.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<img src="https://imgur.com/1rj8zJh.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left">
-Rerun mimikatz as the new name change.
-<p align="center"> 
-<img src="https://imgur.com/oMTDnLD.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-View the Document Details for the new timestamp. The timestamp alerted of mimikatz usage even with the name changed.
-<p align="center"> 
-<img src="https://imgur.com/sx5COCv.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-<h3>$${Setup Shuffle:}$$</h3>
-Open Shuffler.io on a new browser and create a new account. Click 'Workflows'.
-  <br />
-  <br />
-<p align="center"> 
-<img src="https://imgur.com/zE61a1c.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Click 'New Workflow".
-<p align="center"> 
-<img src="https://imgur.com/qn7J4Xb.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Name the project, enter Usecase, put a description, and Save Changes.
-<p align="center"> 
-<img src="https://imgur.com/HdgOtXj.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-The initial workflow space is now open. This where Apps and Triggers will be added.
-<p align="center"> 
-<img src="https://imgur.com/BZY7YkH.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Select 'Triggers' and drag 'Webhooks' over to the workspace. Click on Webhooks, rename it and copy the webhook URI.
-<p align="center"> 
-<img src="https://imgur.com/063Ksvo.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Click 'Change Me'. Find actions is Repeat back to me. Call is $exec.
-<p align="center"> 
-<img src="https://imgur.com/Tvx7IWx.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-In the Wazuh console open the /var/ossec/etc/ossec.conf file with nano.
+![SOC Automation Workflow](images/01-soc-automation-workflow.png)
 
- ## $${Command:}$$
-    nano /var/ossec/etc/ossec.conf 
-<p align="center"> 
-<img src="https://imgur.com/cRcADOJ.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Inside of the ossec.conf file paste the integration tag with the Webhook URI. Save the file.
+---
 
- ## $${Integration tag:}$$
-    <integration>
-      <name>shuffle</name>
-      <hook_url>https://shuffler.io/api/v1/hooks/webhook_ec487b29-d323-4b95-a5d2-e229cb7b12d2 </hook_url>
-      <rule_id>100002</rule_id>
-      <alert_format>json</alert_format>
-    </integration>
-<p align="center"> 
-<img src="https://imgur.com/2QaaQ83.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Restart wazuh-manager.service. Check the status.
+## Environment Setup
 
- ## $${Command:}$$
-    sysytemctl restart wazuh-manager.service 
-    sysytemctl status wazuh-manager.service
-<p align="center"> 
-<img src="https://imgur.com/dWG5b2D.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Regenerate the mimikatz on the Windows client.
-<p align="center"> 
-<img src="https://i.postimg.cc/sxLtFLFR/11.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-On Shuffle, click on the Webhook, and click Start.
-<p align="center"> 
-<img src="https://i.postimg.cc/VvJgpW65/12.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Click on the person running.
-<p align="center"> 
-<img src="https://i.postimg.cc/SKmrkhsB/13.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Click on the new run.
-<p align="center"> 
-<img src="https://i.postimg.cc/g2zsPprf/14.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Select the Execution Arguments.
-<p align="center"> 
-<img src="https://i.postimg.cc/d3n72bvy/15a.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Here all the telemetary from Wazuh can be seen. Copy the hash value as it will be needed to send to VirusTotal.
-<p align="center"> 
-<img src="https://i.postimg.cc/1ztZXb7d/15b.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Click on the Change Me workflow and select Regex capture group under Find Actions. Under Input data, click the plus symbol, and select hash from the drop down.
-<p align="center"> 
-<img src="https://i.postimg.cc/T3tZzC2J/16.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Chat gpt is being used to write a regular expression from the hash copied from the telementary.
-<p align="center"> 
-<img src="https://i.postimg.cc/9FpS9J9H/17.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Paste the regex from gpt into Regex. Save the flow. Click the running person.
-<p align="center"> 
-<img src="https://i.postimg.cc/XqZJ5p2T/18.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Click the refresh symbol with the two arrows. Click Change me.
-<p align="center"> 
-<img src="https://imgur.com/eUFwBoy.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-It can be seen here that it parsed out the SHA256 hash.
-<p align="center"> 
-<img src="https://i.postimg.cc/W1ShQLJY/20.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Rename the Change me to SHA256_Regex.
-<p align="center"> 
-<img src="https://i.postimg.cc/L5BHLLtQ/21.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Click the Apps, search for Virustotal, and drag n drop into the workflow.
-<p align="center"> 
-<img src="https://i.postimg.cc/PrggTP1P/22.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-<p align="left"> 
-Go onto Virustotal and sign up with an account.
-<p align="center"> 
-<img src="https://i.postimg.cc/HW4zVjGr/23.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Enter the API key from Virustotal and Authenticate.
-<p align="center"> 
-<img src="https://i.postimg.cc/8PfhLC9d/24.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Change the hash over to list, save the workflow, and click the running person.
-<p align="center"> 
-<img src="https://i.postimg.cc/28H5GpLz/25.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<img src="https://i.postimg.cc/vZJb2GYd/25b.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Refresh the Details, open the status for Virustotal, and Status is a success.
-<p align="center"> 
-<img src="https://i.postimg.cc/wj6G6Pws/26.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-<h3>$${TheHive will be added to the flow so the alert will be sent there for case management:}$$</h3>
-Open TheHive on a new browser by using thehive(Ubuntu) IP address followed by port 9000. Login using the admin default credentials. Add an Organization by clicking the plus symbol.
-  <br />
-  <br />
-<p align="center"> 
-<img src="https://imgur.com/v7YcPSr.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Fill out the name and description and click Confirm.
-<p align="center"> 
-<img src="https://imgur.com/txLCZdV.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Click upon the newly created Organization to open it.
-<p align="center"> 
-<img src="https://imgur.com/AgqO1Cp.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Two users will be created here. Click Add User.
-<p align="center"> 
-<img src="https://imgur.com/olWPig6.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-For the first user, fill out the name, Login, and Type will be Normal.
-<p align="center"> 
-<img src="https://imgur.com/hzLeQ0x.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Scroll down and create a Password and click Confirm.
-<p align="center"> 
-<img src="https://imgur.com/SJKcYmb.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Click the plus symbol to add another user, fill out the name, login, Type will be service, and create an API Key. Copy the API Key and click confirm.
-<p align="center"> 
-<img src="https://imgur.com/eAwTGfr.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-On Shuffle, search Apps for TheHive, drag, and drop it into the workflow.
-<p align="center"> 
-<img src="https://imgur.com/Clzy4Ji.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Add the API Key from TheHive Dashboard, the URL of TheHive dashboard, and click Submit.
-<p align="center"> 
-<img src="https://imgur.com/9KZMiU3.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Change Find Actions to Create alert.
-<p align="center"> 
-<img src="https://imgur.com/F8CiPil.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Insert the following into each field or the Body.
-<p align="center"> 
-<img src="https://imgur.com/JYyZw6F.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Save the Workflow, click the running person, and click TheHive to view the results.
-<p align="center"> 
-<img src="https://imgur.com/eqQYzfR.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-On TheHive dashboard, login as the new user where a new alert detecting Mimikatz can be viewed.
-<p align="center"> 
-<img src="https://imgur.com/HTTQrke.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Click on the alert to view all the information.
-<p align="center"> 
-<img src="https://imgur.com/rT4TfcK.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<h3>$${Adding email to the Workflow so the SOC will receive the alert:}$$</h3>
-In the Workflow search for email in the Apps, activate it to the workflow, drag, and drop it onto the Workflow board.
-  <br />
-  <br />
-<p align="center"> 
-<img src="https://imgur.com/0K76VQ6.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Connect Virustotal to Email, add Recipients email address, add a Subject, add Execution Title/ Execution Time to the body, click save, and click the running person.
-<p align="center"> 
-<img src="https://imgur.com/GXLbmYL.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-Click Email to view the results.
-<p align="center"> 
-<img src="https://imgur.com/09KhrH3.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-The results were Status Success.
-<p align="center"> 
-<img src="https://imgur.com/fVvhOlc.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
-<p align="left"> 
-+ The email was received by the SOC Team.
-<p align="center"> 
-<img src="https://imgur.com/T6PqZ0n.png" height="80%" width="80%" alt="Project walk-through"/> 
-  <br />
-  <br />
+The lab used a Windows 10 endpoint and cloud-hosted Ubuntu systems for Wazuh and TheHive.
 
+Key setup tasks included:
 
+- Creating a Windows 10 virtual machine
+- Installing Sysmon with a custom configuration
+- Deploying a Wazuh manager in the cloud
+- Installing and configuring TheHive
+- Deploying the Wazuh agent to the Windows endpoint
+- Configuring Windows event telemetry collection
+- Enabling Wazuh archives and Filebeat indexing
 
+![Windows Sysmon Install](images/02-windows-sysmon-install.png)
 
+![Wazuh Dashboard](images/03-wazuh-cloud-dashboard.png)
 
+![TheHive Dashboard](images/04-thehive-dashboard.png)
 
+---
 
+## Detection Engineering
 
+A custom Wazuh rule was created to detect suspicious credential-dumping behavior. The detection was tested by running a known credential-access tool in a controlled lab environment and then renaming the executable to confirm that detection logic was not based only on the original filename.
 
+This helped validate:
 
+- Sysmon event collection
+- Wazuh log ingestion
+- Custom rule creation
+- Detection visibility inside the Wazuh dashboard
+- Alert forwarding into the automation workflow
 
-  
-</p>
+![Wazuh Agent Deployment](images/05-wazuh-agent-deployment.png)
 
+![Windows Sysmon Telemetry](images/06-windows-sysmon-telemetry.png)
 
-<!--
- ```diff
-<!
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
-```
---!>
+![Wazuh Detection Result](images/07-wazuh-mimikatz-detection.png)
+
+![Custom Wazuh Rule](images/08-custom-wazuh-rule.png)
+
+---
+
+## SOAR Automation Workflow
+
+Shuffle was used to automate the alert handling process. Wazuh forwarded alerts to Shuffle through a webhook integration. The workflow parsed the alert data, extracted the SHA256 hash, enriched the hash through VirusTotal, and forwarded the results to TheHive.
+
+Automation steps included:
+
+- Creating a Shuffle webhook trigger
+- Connecting Wazuh alerts to Shuffle
+- Parsing alert JSON
+- Extracting SHA256 hash values
+- Sending hash values to VirusTotal
+- Creating an alert in TheHive
+- Sending an email notification to the SOC team
+
+![Shuffle Webhook Workflow](images/09-shuffle-webhook-workflow.png)
+
+![VirusTotal Enrichment](images/10-virustotal-enrichment.png)
+
+![TheHive Alert Creation](images/11-thehive-alert-creation.png)
+
+![Email Alert Notification](images/12-email-alert-notification.png)
+
+---
+
+## Results and Outcomes
+
+By the end of the project, the lab successfully demonstrated a working SOC alert pipeline:
+
+- Windows endpoint telemetry was collected through Sysmon and Wazuh.
+- Suspicious behavior generated searchable events in Wazuh.
+- A custom Wazuh rule produced a security alert.
+- Shuffle received the alert through a webhook.
+- SHA256 indicators were extracted and enriched with VirusTotal.
+- TheHive received an alert for analyst case management.
+- Email notifications were sent to simulate SOC team alerting.
+
+---
+
+## What Employers Should Notice
+
+This project demonstrates more than tool installation. It shows the ability to design, configure, troubleshoot, and document a security operations workflow from endpoint telemetry through analyst notification.
+
+Key skills demonstrated:
+
+- SOC workflow design
+- SIEM deployment and configuration
+- SOAR automation logic
+- Endpoint telemetry collection
+- Detection engineering fundamentals
+- Custom alert rule creation
+- Threat intelligence enrichment
+- Case management integration
+- Cloud-hosted security lab setup
+- Technical documentation and project ownership
+
+---
+
+## Lessons Learned
+
+This project reinforced the importance of planning the full alert lifecycle before building automations. Each component needed to pass clean data to the next system, which made troubleshooting, field mapping, and workflow validation critical.
+
+Important takeaways:
+
+- Clear architecture diagrams make complex SOC workflows easier to understand.
+- Detection logic should be tested against renamed or modified executables when possible.
+- Webhook integrations require careful formatting and validation.
+- Case management adds structure to incident response workflows.
+- Automation should support analysts, not replace investigation.
+
+---
+
+## Future Improvements
+
+Planned improvements for this lab include:
+
+- Add more detection rules mapped to MITRE ATT&CK
+- Add YARA or Sigma rule examples
+- Include sanitized sample alert JSON
+- Add a dedicated architecture diagram
+- Add a troubleshooting section
+- Add more realistic SOC playbook steps
+- Expand the workflow to include Slack or Teams notifications
+- Add dashboards for alert volume and workflow status
+
+---
+
+## Disclaimer
+
+This project was built in a controlled lab environment for cybersecurity education, SOC workflow practice, and defensive security skill development. Any offensive security tools or techniques referenced are used only to validate defensive detection and response workflows.
